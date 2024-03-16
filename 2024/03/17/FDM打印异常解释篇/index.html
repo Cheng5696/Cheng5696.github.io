@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="FDM," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="开始打印后，耗材不挤出 打印开始前，挤出机没有装填耗材 喷嘴离平台太近 刨料，线材在挤出齿轮上打滑 挤出机堵了  打印耗材不沾平台 平台不平或者喷嘴离平台太远。 重新调平 打印太快   降低第一层速度，让第一层更好的粘平台 温度或冷却设置有问题 当温度降低时，塑料会收缩。塑料从喷嘴中挤出后，会快速地冷却。如果开着冷却风扇，也会加速冷却的过程。打印件在冷却时一定会发生收缩，但是打印平台一直处于一个温">
+<meta property="og:type" content="article">
+<meta property="og:title" content="FDM打印异常解释篇">
+<meta property="og:url" content="http://example.com/2024/03/17/FDM%E6%89%93%E5%8D%B0%E5%BC%82%E5%B8%B8%E8%A7%A3%E9%87%8A%E7%AF%87/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="开始打印后，耗材不挤出 打印开始前，挤出机没有装填耗材 喷嘴离平台太近 刨料，线材在挤出齿轮上打滑 挤出机堵了  打印耗材不沾平台 平台不平或者喷嘴离平台太远。 重新调平 打印太快   降低第一层速度，让第一层更好的粘平台 温度或冷却设置有问题 当温度降低时，塑料会收缩。塑料从喷嘴中挤出后，会快速地冷却。如果开着冷却风扇，也会加速冷却的过程。打印件在冷却时一定会发生收缩，但是打印平台一直处于一个温">
+<meta property="og:locale">
+<meta property="og:image" content="http://example.com/images/20231226162802.jpg">
+<meta property="og:image" content="http://example.com/images/20231226165247.jpg">
+<meta property="og:image" content="http://example.com/images/20231226172142.jpg">
+<meta property="og:image" content="http://example.com/images/%E7%BF%98%E8%BE%B9231208.jpg">
+<meta property="og:image" content="http://example.com/images/20231227114532.jpg">
+<meta property="og:image" content="http://example.com/images/20231227115736.jpg">
+<meta property="og:image" content="http://example.com/images/20231227140406.jpg">
+<meta property="article:published_time" content="2024-03-16T16:52:00.000Z">
+<meta property="article:modified_time" content="2024-03-16T16:54:54.862Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="FDM">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/images/20231226162802.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://example.com/2024/03/17/FDM打印异常解释篇/"/>
+
+
+
+
+
+  <title>FDM打印异常解释篇 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/03/17/FDM%E6%89%93%E5%8D%B0%E5%BC%82%E5%B8%B8%E8%A7%A3%E9%87%8A%E7%AF%87/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">FDM打印异常解释篇</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2024-03-17T00:52:00+08:00">
+                2024-03-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/3D%E6%89%93%E5%8D%B0/" itemprop="url" rel="index">
+                    <span itemprop="name">3D打印</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="开始打印后，耗材不挤出"><a href="#开始打印后，耗材不挤出" class="headerlink" title="开始打印后，耗材不挤出"></a>开始打印后，耗材不挤出</h3><ol>
+<li>打印开始前，挤出机没有装填耗材</li>
+<li>喷嘴离平台太近</li>
+<li>刨料，线材在挤出齿轮上打滑</li>
+<li>挤出机堵了</li>
+</ol>
+<h3 id="打印耗材不沾平台"><a href="#打印耗材不沾平台" class="headerlink" title="打印耗材不沾平台"></a>打印耗材不沾平台</h3><ol>
+<li>平台不平或者喷嘴离平台太远。 重新调平</li>
+<li>打印太快   降低第一层速度，让第一层更好的粘平台</li>
+<li>温度或冷却设置有问题<br> 当温度降低时，塑料会收缩。塑料从喷嘴中挤出后，会快速地冷却。如果开着冷却风扇，也会加速冷却的过程。打印件在冷却时一定会发生收缩，但是打印平台一直处于一个温度不会像打印件那样收缩。所以模型冷却时，是倾向脱离平台的。<ol>
+<li>检查热床温度，PLA热床一般在60-70度。ABS一般在100-120度。</li>
+<li>在打印前几层时，也需要禁用风扇，ABS可能需要全程禁用风扇</li>
+</ol>
+</li>
+<li>平台表面处理<br> 不同的塑料，与不同的材质材料粘合度不一样。<br> 经过热处理过硼化硅玻璃平台，这种玻璃在加热后，能与 ABS 很好地粘合<br> PLA 能和蓝色美纹胶带粘合得很好<br> ABS 则与 Kapton 胶带粘合得好。</li>
+<li>裙边和底座<br> 使用裙边和底座增加与平台的附着面积，进而增加粘附力。</li>
+</ol>
+<h3 id="出料不足"><a href="#出料不足" class="headerlink" title="出料不足"></a>出料不足</h3><p>实际挤出的塑料比软件期望的要少<br>打印一个简单的正方体，设置至少打印 3 层边线，检查一下顶部的 3 条边线是否紧密地粘合在一起。如果 3 条连线之间有间隙，那就是出料不足的。</p>
+<ol>
+<li>检查切片设置的耗材直径</li>
+<li>增加挤出倍率<br> 如果你的挤出倍率原来是 1.0，你修改它为 1.05，这意味着将比以前多挤出 5%的塑料</li>
+</ol>
+<h3 id="出料偏多"><a href="#出料偏多" class="headerlink" title="出料偏多"></a>出料偏多</h3><p>打印机挤出超过软件预期的塑料<br>参考出料不足</p>
+<h3 id="顶层出现孔洞或缝隙"><a href="#顶层出现孔洞或缝隙" class="headerlink" title="顶层出现孔洞或缝隙"></a>顶层出现孔洞或缝隙</h3><ol>
+<li>调整顶层实心填充层的数量<br> 顶层实心部分打印的厚度至少为 0.5mm。所以如果你使用 0.2为层高，你需要打印 3层顶部实心层。</li>
+<li>填充率太低<br> 增加顶部实心层的数量，你在顶部仍然能看到间隙，可以尝试增加填充率</li>
+<li>出料不足<br> 尝试增加填充率，和顶层实心层的数量，但在打印件的顶层，你的仍能看到间隙。可能遇到挤出不足的问题</li>
+</ol>
+<h3 id="拉丝或垂料"><a href="#拉丝或垂料" class="headerlink" title="拉丝或垂料"></a>拉丝或垂料</h3><p>当喷嘴移到新的位置时，塑料从喷嘴中垂出来了</p>
+<ol>
+<li>回抽<br> 当挤出机完成模型一个区域的打印后，喷嘴中的线材会被回拉，这样再次打印时，塑料会被重新推入喷嘴，从喷嘴顶部挤出</li>
+<li>回抽距离<br> 多少塑料，会从喷嘴拉回<br> 一般直接驱动的挤出机，只需要 0.5到 2.0mm 的回抽距离<br> 波顿（Bowden）挤出机，可能需要高达 15mm 的回抽距离</li>
+<li>回抽速度<br> 线材从喷嘴抽离的快慢<br> 如果回抽太慢，塑料将会从喷嘴中垂出来，进而在移动到新的位置之前，就开始泄漏了。如果回抽太快，线材可能与喷嘴中的塑料断开<br> 一般回抽速度在1200-6000mm&#x2F;min(20-100mm&#x2F;s)</li>
+<li>温度太高<br> 温度太高，喷嘴中的塑料，会变成非常粘稠，进而更容易从喷嘴中流出来<br> 温度太低，塑料会保持较硬状态，而难以从喷嘴中挤出来</li>
+<li>悬空移动距离太长<ol>
+<li>避免跨越轮廓边界   </li>
+<li>轮廓生成器：经典</li>
+</ol>
+</li>
+</ol>
+<h3 id="过热"><a href="#过热" class="headerlink" title="过热"></a>过热</h3><p>耗材挤出后没有迅速冷却定型。</p>
+<ol>
+<li>散热不足，开冷却风扇</li>
+<li>打印温度太高，降低几度看看。</li>
+<li>打印太快，每层的冷切时间不足。</li>
+<li>一次打印多个打印件(增加每层的打印时间)</li>
+</ol>
+<h3 id="层错位"><a href="#层错位" class="headerlink" title="层错位"></a>层错位</h3><p><img src="/images/20231226162802.jpg"></p>
+<ol>
+<li>打印速度过快，超过了电机能承受的范围。</li>
+<li>机械或电子问题<ol>
+<li>同步带可能会松弛，打滑</li>
+<li>同步带安装得太紧。过度绷紧的同步带，会使轴承间产生过大的摩擦力，从而阻碍电机转动。</li>
+<li>顶丝松动了，同步轮不再与电机轴一同旋转。</li>
+<li>电机失步<ol>
+<li>电机的电流不足，电机将没有足够的力矩转动</li>
+<li>电机驱动板过热，这会导致电机间歇性地停止转动</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="层开裂或断开"><a href="#层开裂或断开" class="headerlink" title="层开裂或断开"></a>层开裂或断开</h3><p><img src="/images/20231226165247.jpg"></p>
+<p>层与层之间不能很好地粘合，最后打印件可能开裂或断开<br>新的层被挤压到下面那层上，从而两层可以粘合在一起。</p>
+<ol>
+<li>层高太高<br> 层高比喷嘴直径小 20%。例如，如果你的喷嘴直径是 0.4mm，你使用的层高不能超过 0.32mm</li>
+<li>打印温度太低。</li>
+</ol>
+<h3 id="刨料"><a href="#刨料" class="headerlink" title="刨料"></a>刨料</h3><p>齿轮可能会从线材上刨掉部分塑料，以致齿轮没地方再抓住线材</p>
+<ol>
+<li>提高打印温度，让塑料更容易挤出</li>
+<li>打印速度太快。</li>
+<li>堵头</li>
+</ol>
+<h3 id="打印中途，挤出停止"><a href="#打印中途，挤出停止" class="headerlink" title="打印中途，挤出停止"></a>打印中途，挤出停止</h3><ol>
+<li>耗材用完了</li>
+<li>堵头</li>
+<li>耗材和驱动齿轮打滑，刨料。</li>
+<li>打印机的电路没能有效散热，导致电机驱动电路过热</li>
+</ol>
+<h3 id="填充不牢"><a href="#填充不牢" class="headerlink" title="填充不牢"></a>填充不牢</h3><p><img src="/images/20231226172142.jpg"><br>填充显得不牢或纤细</p>
+<ol>
+<li>更改填充图案，有些图案比其它更结实一些。</li>
+<li>降低打印速度。填充速度通常比其它部分的打印速度要快，打印速度太快，挤出机将可能跟不上。</li>
+<li>增大 高级–填充挤出宽度</li>
+</ol>
+<h3 id="斑点和疤痕"><a href="#斑点和疤痕" class="headerlink" title="斑点和疤痕"></a>斑点和疤痕</h3><p>挤出机必须从你的 3D 模型的外壳的某个位置开始打印，当整个壳打印完后，喷头会返回那个位置。这通常被称作斑点或疤痕</p>
+<ol>
+<li>调整回抽，(回抽距离，或者设置额外补偿量)</li>
+<li>开启回抽时擦拭</li>
+<li>避免非必要回抽<ol>
+<li>避免跨越轮廓边界   </li>
+<li>轮廓生成器：经典</li>
+</ol>
+</li>
+<li>使用接缝绘制</li>
+</ol>
+<h3 id="填充与轮廓之间有间隙"><a href="#填充与轮廓之间有间隙" class="headerlink" title="填充与轮廓之间有间隙"></a>填充与轮廓之间有间隙</h3><p>填充的边缘，有间隙</p>
+<ol>
+<li>高级–填充轮廓重叠，增加重叠量</li>
+<li>打印太快，打印件填充部分的速度，比轮廓快太多，没有足够多的时间与外轮廓粘合。</li>
+</ol>
+<h3 id="翘边"><a href="#翘边" class="headerlink" title="翘边"></a>翘边</h3><p><img src="/images/%E7%BF%98%E8%BE%B9231208.jpg"><br>Warping 	翘边是3D打印中常见的问题，当打印物体在打印过程中卷曲或脱离打印平台时，会导致底层变形或翘曲。</p>
+<ol>
+<li>增加热床温度，降低温差</li>
+<li>参考 打印耗材不沾平台</li>
+</ol>
+<h3 id="顶层有疤痕"><a href="#顶层有疤痕" class="headerlink" title="顶层有疤痕"></a>顶层有疤痕</h3><p><img src="/images/20231227114532.jpg"><br>种疤痕产生在，喷嘴移动到新的位置过程中，从之前打印的塑料上拖曳而过</p>
+<ol>
+<li>挤出塑料过多<br> 挤出过多塑料，每层将倾向于比预设的要厚。喷嘴从每层上移动通过时，它可能会拖拽之前过度挤出的塑料。</li>
+<li>打开z抬升，喷嘴回抽时抬升一段距离，避免喷嘴刮伤打印件的上表面。</li>
+</ol>
+<h3 id="边角上的孔洞和间隙"><a href="#边角上的孔洞和间隙" class="headerlink" title="边角上的孔洞和间隙"></a>边角上的孔洞和间隙</h3><ol>
+<li>增加轮廓数量</li>
+<li>增加水平外壳实心层数量。</li>
+<li>增加填充率</li>
+</ol>
+<h3 id="侧面线性纹理"><a href="#侧面线性纹理" class="headerlink" title="侧面线性纹理"></a>侧面线性纹理</h3><p>侧面不是整体平滑的表面<br><img src="/images/20231227115736.jpg"></p>
+<ol>
+<li>挤出不稳定，线材公差较大<br> 耗材直径的波动，会导致挤出的塑料线条宽度改变</li>
+<li>温度波动<br> 温度太高时，塑料的挤出顺畅度，跟它更冷一些的时候相比是不同的。这会导致打印机挤出的层不一样，导致打印件外表面出现纹理。<br> 正确打印机应该可以将挤出机的温度，控制在正负 2 度之间</li>
+<li>机械问题<ol>
+<li>打印平台，在打印过程中晃动，会导致喷嘴位置波动。这意味着有的层会比其它层更厚。这些较厚的层，将在打印件外表产生线性纹理。</li>
+<li>Z 轴丝杆没有正确安装。</li>
+<li>丝杆回程误差过大（丝杆旋转方向变化后，由于摩擦力、肉眼分辨力等因素影响，丝杆未能恰好沿着原路线返回，而是留下了一定的回差偏差）</li>
+<li>电机细分控制不足</li>
+</ol>
+</li>
+</ol>
+<h3 id="震动和回环纹理"><a href="#震动和回环纹理" class="headerlink" title="震动和回环纹理"></a>震动和回环纹理</h3><p>回环是打印件表面出现的波浪形纹理<br>在突然的方向改变时，挤出机的惯性将导致振动，这将呈现在打印件身上。</p>
+<ol>
+<li>打印速度太快</li>
+<li>降低固件加速度，加速度控制来避免突然转向，使速度变化更平缓</li>
+<li>机械故障导致过多震动产生。</li>
+</ol>
+<h3 id="薄壁上出现间隙"><a href="#薄壁上出现间隙" class="headerlink" title="薄壁上出现间隙"></a>薄壁上出现间隙</h3><p>当打印只比喷嘴直径大几倍的薄壁时<br><img src="/images/20231227140406.jpg"></p>
+<ol>
+<li>增大  高级–填充&#x2F;轮廓重叠  </li>
+<li>修改  高级–挤出丝宽度。</li>
+</ol>
+<h3 id="细节打印不出来"><a href="#细节打印不出来" class="headerlink" title="细节打印不出来"></a>细节打印不出来</h3><p>挤出丝宽度必须总是比喷嘴直径大或者相等</p>
+<ol>
+<li>重新设计你的模型，使其只包含比你的喷嘴直径大的特征</li>
+<li>安装更小孔径的喷嘴</li>
+<li>减小  高级–挤出丝宽度。强制软件去打印这些细微特征。</li>
+</ol>
+<h3 id="挤出不稳定"><a href="#挤出不稳定" class="headerlink" title="挤出不稳定"></a>挤出不稳定</h3><p>挤出机不能稳定挤出塑料<br>例如打印一个长 20mm 的直线，挤出丝看起来凹凸不平或者尺寸好像有波动</p>
+<ol>
+<li>耗材被卡住或者缠绕在一起</li>
+<li>堵头<br> 手工挤出一些塑料。观察确保塑料挤出是连续和稳定的。</li>
+<li>层高过小，塑料可能很难挤出。</li>
+<li>检查 高级–挤出丝宽度  挤出丝宽度，需要是喷嘴直径的 100%到 150%之间</li>
+<li>耗材质量太差  质量差的线材，可能包含其它添加剂，影响挤出的稳定性</li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/FDM/" rel="tag"># FDM</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2023/08/20/%E8%B0%88%E8%B0%88%E6%88%91%E7%9A%84%E7%AC%94%E8%AE%B0%E7%B3%BB%E7%BB%9F/" rel="next" title="谈谈我的笔记系统">
+                <i class="fa fa-chevron-left"></i> 谈谈我的笔记系统
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="" />
+          <p class="site-author-name" itemprop="name"></p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%80%E5%A7%8B%E6%89%93%E5%8D%B0%E5%90%8E%EF%BC%8C%E8%80%97%E6%9D%90%E4%B8%8D%E6%8C%A4%E5%87%BA"><span class="nav-number">1.</span> <span class="nav-text">开始打印后，耗材不挤出</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%93%E5%8D%B0%E8%80%97%E6%9D%90%E4%B8%8D%E6%B2%BE%E5%B9%B3%E5%8F%B0"><span class="nav-number">2.</span> <span class="nav-text">打印耗材不沾平台</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%BA%E6%96%99%E4%B8%8D%E8%B6%B3"><span class="nav-number">3.</span> <span class="nav-text">出料不足</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%BA%E6%96%99%E5%81%8F%E5%A4%9A"><span class="nav-number">4.</span> <span class="nav-text">出料偏多</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%B6%E5%B1%82%E5%87%BA%E7%8E%B0%E5%AD%94%E6%B4%9E%E6%88%96%E7%BC%9D%E9%9A%99"><span class="nav-number">5.</span> <span class="nav-text">顶层出现孔洞或缝隙</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8B%89%E4%B8%9D%E6%88%96%E5%9E%82%E6%96%99"><span class="nav-number">6.</span> <span class="nav-text">拉丝或垂料</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%87%E7%83%AD"><span class="nav-number">7.</span> <span class="nav-text">过热</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B1%82%E9%94%99%E4%BD%8D"><span class="nav-number">8.</span> <span class="nav-text">层错位</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B1%82%E5%BC%80%E8%A3%82%E6%88%96%E6%96%AD%E5%BC%80"><span class="nav-number">9.</span> <span class="nav-text">层开裂或断开</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A8%E6%96%99"><span class="nav-number">10.</span> <span class="nav-text">刨料</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%93%E5%8D%B0%E4%B8%AD%E9%80%94%EF%BC%8C%E6%8C%A4%E5%87%BA%E5%81%9C%E6%AD%A2"><span class="nav-number">11.</span> <span class="nav-text">打印中途，挤出停止</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A1%AB%E5%85%85%E4%B8%8D%E7%89%A2"><span class="nav-number">12.</span> <span class="nav-text">填充不牢</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%91%E7%82%B9%E5%92%8C%E7%96%A4%E7%97%95"><span class="nav-number">13.</span> <span class="nav-text">斑点和疤痕</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A1%AB%E5%85%85%E4%B8%8E%E8%BD%AE%E5%BB%93%E4%B9%8B%E9%97%B4%E6%9C%89%E9%97%B4%E9%9A%99"><span class="nav-number">14.</span> <span class="nav-text">填充与轮廓之间有间隙</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BF%98%E8%BE%B9"><span class="nav-number">15.</span> <span class="nav-text">翘边</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%B6%E5%B1%82%E6%9C%89%E7%96%A4%E7%97%95"><span class="nav-number">16.</span> <span class="nav-text">顶层有疤痕</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%B9%E8%A7%92%E4%B8%8A%E7%9A%84%E5%AD%94%E6%B4%9E%E5%92%8C%E9%97%B4%E9%9A%99"><span class="nav-number">17.</span> <span class="nav-text">边角上的孔洞和间隙</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%A7%E9%9D%A2%E7%BA%BF%E6%80%A7%E7%BA%B9%E7%90%86"><span class="nav-number">18.</span> <span class="nav-text">侧面线性纹理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9C%87%E5%8A%A8%E5%92%8C%E5%9B%9E%E7%8E%AF%E7%BA%B9%E7%90%86"><span class="nav-number">19.</span> <span class="nav-text">震动和回环纹理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%96%84%E5%A3%81%E4%B8%8A%E5%87%BA%E7%8E%B0%E9%97%B4%E9%9A%99"><span class="nav-number">20.</span> <span class="nav-text">薄壁上出现间隙</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%86%E8%8A%82%E6%89%93%E5%8D%B0%E4%B8%8D%E5%87%BA%E6%9D%A5"><span class="nav-number">21.</span> <span class="nav-text">细节打印不出来</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8C%A4%E5%87%BA%E4%B8%8D%E7%A8%B3%E5%AE%9A"><span class="nav-number">22.</span> <span class="nav-text">挤出不稳定</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        
+<div class="powered-by">
+  由 <a class="theme-link" target="_blank" rel="noopener" href="https://chengcheng.xyz/about/">CC</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  <a class="theme-link" target="_blank" rel="noopener" href="https://chengcheng.xyz/about/">
+    mr.chuangshi@gmail.com
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
