@@ -95,9 +95,9 @@
 
 
 <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
+<meta property="og:title" content="成城的博客">
 <meta property="og:url" content="http://example.com/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="成城的博客">
 <meta property="og:locale">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
@@ -135,7 +135,7 @@
 
 
 
-  <title>Hexo</title>
+  <title>成城的博客</title>
   
 
 
@@ -173,7 +173,7 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Hexo</span>
+        <span class="site-title">成城的博客</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -289,7 +289,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="成城的博客">
     </span>
 
     
@@ -584,7 +584,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="成城的博客">
     </span>
 
     
@@ -737,7 +737,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="成城的博客">
     </span>
 
     
@@ -1371,7 +1371,7 @@ b. 全局配置
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="成城的博客">
     </span>
 
     
@@ -1581,6 +1581,252 @@ b. 全局配置
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/08/13/FDM%E7%A1%AC%E4%BB%B6%E7%AF%87/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="成城的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2023/08/13/FDM%E7%A1%AC%E4%BB%B6%E7%AF%87/" itemprop="url">FDM硬件篇</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2023-08-13T17:49:00+08:00">
+                2023-08-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/3D%E6%89%93%E5%8D%B0/" itemprop="url" rel="index">
+                    <span itemprop="name">3D打印</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="开关电源"><a href="#开关电源" class="headerlink" title="开关电源"></a>开关电源</h3><ol>
+<li>按DC输出电压，电流，功率分类。</li>
+<li>一般使用12V直流电源，电流在5－30A。</li>
+</ol>
+<h3 id="步进电机"><a href="#步进电机" class="headerlink" title="步进电机"></a>步进电机</h3><h4 id="电流脉冲"><a href="#电流脉冲" class="headerlink" title="电流脉冲"></a>电流脉冲</h4><p>电机一般分为开环电机和闭环电机。</p>
+<p>步进电机是一种将电脉冲信号转换成相应角位移或线位移的开环控制电动机。</p>
+<p>每输入一个脉冲信号,转子就转动一个角度或前进一步，其输出的角位移或线位移与输入的脉冲数成正比，转速与脉冲频率成正比</p>
+<p>电流脉冲是由电机驱动单元供给的。</p>
+<p>所以只要控制脉冲的数量、频率和电机绕组的相序，目即可获得所需的转角、速度和方向。</p>
+<h4 id="机座号"><a href="#机座号" class="headerlink" title="机座号"></a>机座号</h4><p>42型、37型、57步型进电机的外形<br>外型尺寸<br>长度越大，功率和转矩越大。</p>
+<h4 id="步距角"><a href="#步距角" class="headerlink" title="步距角"></a>步距角</h4><p>当步进驱动器接收到一个脉冲信号，它就驱动步进电机转动一个固定的角度，称为“步距角它的旋转是以固定的角度一步一步运的。</p>
+<p>通过控制脉冲个数来控制角位移量，从而达到准确定位;<br>通过控制脉冲频率来控制电机转动的速度和加速度，从而达到调速的目的。</p>
+<p>最常见的步距角有三种，分别是0.9°，1.8°和7.5°。</p>
+<table>
+<thead>
+<tr>
+<th>步距角</th>
+<th>0.9°</th>
+<th>1.8°</th>
+<th>7.5</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>旋转一周，需要的脉冲个数</td>
+<td>400</td>
+<td>200</td>
+<td>48</td>
+</tr>
+</tbody></table>
+<p>小的步距角打印更平稳，转矩更大，精度更高。但是会降低最大转速。</p>
+<h4 id="级数"><a href="#级数" class="headerlink" title="级数"></a>级数</h4><p>极就是磁极<br>是转子每转一圈在定子线圈的一匝中感应形成几个周期电流不同的极数。<br>电机的极对数越多，电机的转速就越低，扭矩就越大。</p>
+<h5 id="双级步进电机"><a href="#双级步进电机" class="headerlink" title="双级步进电机"></a>双级步进电机</h5><p>双极步进电动机内部有两组独立的线圈，每组线圈都需要单独的驱动电路，需要依靠驱动电路改变电流的方向，进而改变磁极方向，驱动电路相对简单。</p>
+<h5 id="单级步进电机"><a href="#单级步进电机" class="headerlink" title="单级步进电机"></a>单级步进电机</h5><p>单极步进电动机有两组线圈，而每组线圈中间多接出一根引线，改变每一组线圈的磁极方向。单级步进电动机只使用了一半的线圈，在同等体积的情况下没有双极步进电动机转矩大。</p>
+<p>单极步进电动机大部分有5根或6根引线，<br>双极步进电动机有4根或8根引线。</p>
+<h4 id="细分"><a href="#细分" class="headerlink" title="细分"></a>细分</h4><p>细分是通过控制各相绕组中的电流，使它们按一定的规律上升或下降，即在零电流到最大电流之间形成多个稳定的中间电流状态，相应的合成磁场矢量的方向将存在多个稳定的中间状态，且按细分步距旋转。</p>
+<p>步进电动机驱动大负载，大摩擦力，或者高速往复运动，细分数高于二分之一步进角时，不能提高步进电动机的定位精度，而在小负载时却能很好地提高定位精度。</p>
+<p>驱动电路的主芯片，通常具有驱动细分功能，常见的有1&#x2F;2、1&#x2F;4、1&#x2F;16等。</p>
+<blockquote>
+<p>如果是1&#x2F;16细分，其代表的含义是原来一个脉冲可以控制电机转动一个步距角，现在需要16个脉冲电机才能转动一个步距角。如果选择的步距角是1.8°，那么电机旋转一周就需要200 * 16（3200）个脉冲信号。</p>
+</blockquote>
+<h4 id="步进电机的保持转矩"><a href="#步进电机的保持转矩" class="headerlink" title="步进电机的保持转矩"></a>步进电机的保持转矩</h4><p>转矩不足会导致丢步问题。</p>
+<h4 id="接线"><a href="#接线" class="headerlink" title="接线"></a>接线</h4><p>4线，6线，8线 步进电机比较多。</p>
+<p>4线步进电机<br>有两组线圈，每组两根引线。<br>调换任意一根线圈的两根引线可以改变步进电机转动方向。</p>
+<p>6线步进电机<br>有两组线圈，每组线圈中间多接一根引线。</p>
+<p>8线步进电机<br>有AB两相，4组线圈，A相两组线圈，B相两组线圈</p>
+<h4 id="步进电机的温度"><a href="#步进电机的温度" class="headerlink" title="步进电机的温度"></a>步进电机的温度</h4><ol>
+<li>步进电机温度过高，会使电动机的磁性材料退磁，力矩下降。</li>
+<li>一般磁性材料退磁点在130°C以上。所以步进电机外面的温度在80度左右完成正常。</li>
+</ol>
+<h3 id="同步带和同步轮"><a href="#同步带和同步轮" class="headerlink" title="同步带和同步轮"></a>同步带和同步轮</h3><p>传动部分主要包括同步带，同步带轮，丝杆，联轴器，齿轮，减速机。</p>
+<h4 id="同步带和同步带轮"><a href="#同步带和同步带轮" class="headerlink" title="同步带和同步带轮"></a>同步带和同步带轮</h4><ol>
+<li><p>常见同步带宽度有5mm，6mm</p>
+</li>
+<li><p>齿形有T形齿和圆弧齿</p>
+</li>
+<li><p>齿与齿间的距离在2-5mm</p>
+</li>
+<li><p>常用型号<br> T5同步带 齿距为5mm<br> T2.5同步带  齿距为2.5mm通常和铝制同步带轮配套。</p>
+<p> 工业级同步带  同步带和带轮间隙更小，精度更高。<br> XL同步带 齿距5.08mm 圆弧齿<br> MXL同步带 齿距为2.032mm  圆弧齿</p>
+<p> GT2 同步带 圆弧齿 往复运动回查很小<br> HTD-3M同步带 </p>
+</li>
+<li><p>同步带轮齿数多，电机运动分辨率高，转矩下降，适合高转速运动。</p>
+</li>
+<li><p>同步带轮齿数少，电机运动分辨率低，转矩大，适合低速运动。</p>
+</li>
+</ol>
+<h4 id="同步带传动时的脉冲数计算"><a href="#同步带传动时的脉冲数计算" class="headerlink" title="同步带传动时的脉冲数计算"></a>同步带传动时的脉冲数计算</h4><p><img src="/images/20231223175018.jpg"></p>
+<h3 id="丝杆"><a href="#丝杆" class="headerlink" title="丝杆"></a>丝杆</h3><p>大部分z轴使用丝杆传递动力。<br>丝杆精度高，传动效率高。缺点移动速度慢。</p>
+<h4 id="有T形丝杆，滚珠丝杆，和普通丝杆"><a href="#有T形丝杆，滚珠丝杆，和普通丝杆" class="headerlink" title="有T形丝杆，滚珠丝杆，和普通丝杆"></a>有T形丝杆，滚珠丝杆，和普通丝杆</h4><ol>
+<li><p>T形丝杆<br>消费级3d打印机<br>优点精度有保障，价格低<br>缺点，避免不了左右晃动</p>
+</li>
+<li><p>滚珠丝杆<br>工业级3d打印机使用<br>优点，精度高，运动过程中不存在晃动，可以连续运行，承受较高负载，达到更快的运行速度。<br>缺点，价格贵</p>
+</li>
+<li><p>普通丝杆<br>一般diy打印机使用，直径一般8mm，5mm<br>优点，便宜，容易买到<br>缺点，晃动大，精度不一致。</p>
+</li>
+</ol>
+<h4 id="丝杆的参数"><a href="#丝杆的参数" class="headerlink" title="丝杆的参数"></a>丝杆的参数</h4><p>螺距P   导程L  头数n</p>
+<p>螺距是相邻两个螺线的距离。</p>
+<p>导程是丝杆旋转360度，T型螺母移动的距离。</p>
+<p>头数是丝杆上螺线的数量。<br>查看丝杆头部，有几个丝口入点就是几头。</p>
+<p>导程&#x3D;螺距×头数</p>
+<h4 id="丝杆传动计算"><a href="#丝杆传动计算" class="headerlink" title="丝杆传动计算"></a>丝杆传动计算</h4><p><img src="/images/IMG_20231228_081830.jpg"></p>
+<h3 id="挤出机的传动"><a href="#挤出机的传动" class="headerlink" title="挤出机的传动"></a>挤出机的传动</h3><h4 id="行星减速机"><a href="#行星减速机" class="headerlink" title="行星减速机"></a>行星减速机</h4><p>将电动机的回转数减速到所要的回转数，并得到较大的扭矩。</p>
+<h4 id="齿轮"><a href="#齿轮" class="headerlink" title="齿轮"></a>齿轮</h4><ol>
+<li>齿轮上某一点旋转一周产生的距离就是料移动的长度，等于齿轮周长。</li>
+<li>型号 mk8   mk7  等</li>
+<li>直径，周长，齿形（直齿，凹形齿），齿数（26齿，36齿，40齿），材料（黄铜，不锈钢）</li>
+</ol>
+<h4 id="挤出机齿轮驱动计算"><a href="#挤出机齿轮驱动计算" class="headerlink" title="挤出机齿轮驱动计算"></a>挤出机齿轮驱动计算</h4><p><img src="/images/IMG_20231229_081514.jpg"></p>
+<h4 id="近程挤出和远程挤出"><a href="#近程挤出和远程挤出" class="headerlink" title="近程挤出和远程挤出"></a>近程挤出和远程挤出</h4><h3 id="挤出头"><a href="#挤出头" class="headerlink" title="挤出头"></a>挤出头</h3><h4 id="分体挤出头"><a href="#分体挤出头" class="headerlink" title="分体挤出头"></a>分体挤出头</h4><p>最前端可以更换不同尺寸的打印喷嘴</p>
+<p>有铝制喷嘴和黄铜喷嘴</p>
+<h4 id="一体化挤出头"><a href="#一体化挤出头" class="headerlink" title="一体化挤出头"></a>一体化挤出头</h4><h3 id="限位开关"><a href="#限位开关" class="headerlink" title="限位开关"></a>限位开关</h3><h4 id="机械式限位开关"><a href="#机械式限位开关" class="headerlink" title="机械式限位开关"></a>机械式限位开关</h4><p>通常有三个点，一个公共点，一个常开，一个常闭。</p>
+<h4 id="光电式限位开关"><a href="#光电式限位开关" class="headerlink" title="光电式限位开关"></a>光电式限位开关</h4><p>槽型光电<br>发射器发射光信号，接收器接受光信号的强弱判断物体。</p>
+<p>寿命长，精度高，响应速度快。</p>
+<h4 id="霍尔式限位开关"><a href="#霍尔式限位开关" class="headerlink" title="霍尔式限位开关"></a>霍尔式限位开关</h4><p>识别附近有磁性物体，控制开关的通断。<br>检测物体必须是磁性物体</p>
+<h3 id="热床"><a href="#热床" class="headerlink" title="热床"></a>热床</h3><p>减缓翘边</p>
+<h4 id="隔离材料"><a href="#隔离材料" class="headerlink" title="隔离材料"></a>隔离材料</h4><p>在加热过程中，热床中心温度要高于四边温度。<br>隔离加热床底部温度，可以使温度分布均匀。<br>用纤维板，羊毛，等隔离热床底部温度。</p>
+<h4 id="热床电线"><a href="#热床电线" class="headerlink" title="热床电线"></a>热床电线</h4><p>电线外面使用铁氟龙管绝缘隔离。</p>
+<h3 id="打印平台"><a href="#打印平台" class="headerlink" title="打印平台"></a>打印平台</h3><h4 id="玻璃"><a href="#玻璃" class="headerlink" title="玻璃"></a>玻璃</h4><p>高硼硅玻璃更安全，加热温度更高<br>价格低，不容易变形弯曲。但是导热系数小，加热不均匀容易碎裂。</p>
+<h4 id="陶瓷玻璃"><a href="#陶瓷玻璃" class="headerlink" title="陶瓷玻璃"></a>陶瓷玻璃</h4><p>可以避免加热不均破碎</p>
+<h4 id="金属"><a href="#金属" class="headerlink" title="金属"></a>金属</h4><p>铝板，铜板，钢板<br>优点容易传递热量，温度分布更均匀。<br>缺点容易变形，</p>
+<h4 id="加热材料"><a href="#加热材料" class="headerlink" title="加热材料"></a>加热材料</h4><p>镍铬合金丝<br>PCB加热板<br>MK3加热板<br>硅胶加热垫</p>
+<h3 id="传感器"><a href="#传感器" class="headerlink" title="传感器"></a>传感器</h3><h4 id="温度传感器"><a href="#温度传感器" class="headerlink" title="温度传感器"></a>温度传感器</h4><p>热敏电阻，或者热电偶元件</p>
+<p>热敏电阻，阻值随温度变化而变化，实际应用中温度变化不是线性的，测量精准的温度需要根据温度阻值对应表，而不是根据温度阻值曲线公式计算。<br>通过模数转换器测量热敏电阻一端的电压，从而间接测量出热敏电阻阻值，在通过热敏电阻阻值查表找到对应的温度。</p>
+<h3 id="固件"><a href="#固件" class="headerlink" title="固件"></a>固件</h3><p>控制板固件的主要作用是分析处理G代码命令。控制3D打印机硬件执行命令。<br>固件和上位机通信的波特率，一般设置成115200或者250000</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://example.com/2023/07/30/Termux%E4%BD%BF%E7%94%A8%E6%97%A5%E5%BF%97/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1590,7 +1836,7 @@ b. 全局配置
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="成城的博客">
     </span>
 
     
@@ -1826,7 +2072,7 @@ b. 全局配置
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
