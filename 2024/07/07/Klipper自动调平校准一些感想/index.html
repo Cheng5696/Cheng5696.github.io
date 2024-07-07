@@ -57,7 +57,7 @@
   
     
     
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link href="//fonts.lug.ustc.edu.cn/css?family=Lato:300,300italic,400,400italic,700,700italic&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
   
 
 
@@ -86,12 +86,12 @@
 
 
 
-<meta name="description" content="概论这里提供两种自动调平方式，其他的之后在补充第一种是用接近开关当探头，使用固定z限位来定位回原 第二种是使用bltouch作为探针和定位回原用。 床网床网参数1234567891011121314[bed_mesh]speed: 200             #探针在探测点之间移动的速度horizontal_move_z: 10   #探针在移动前上升到的距离mesh_min: 70,50">
+<meta name="description" content="概论这里提供两种自动调平方式，其他的之后在补充第一种是用接近开关当探头，使用固定z限位来定位回原 第二种是使用bltouch作为探针和定位回原用。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="klipper自动调平的一些感想">
 <meta property="og:url" content="http://example.com/2024/07/07/Klipper%E8%87%AA%E5%8A%A8%E8%B0%83%E5%B9%B3%E6%A0%A1%E5%87%86%E4%B8%80%E4%BA%9B%E6%84%9F%E6%83%B3/index.html">
 <meta property="og:site_name" content="成城的博客">
-<meta property="og:description" content="概论这里提供两种自动调平方式，其他的之后在补充第一种是用接近开关当探头，使用固定z限位来定位回原 第二种是使用bltouch作为探针和定位回原用。 床网床网参数1234567891011121314[bed_mesh]speed: 200             #探针在探测点之间移动的速度horizontal_move_z: 10   #探针在移动前上升到的距离mesh_min: 70,50">
+<meta property="og:description" content="概论这里提供两种自动调平方式，其他的之后在补充第一种是用接近开关当探头，使用固定z限位来定位回原 第二种是使用bltouch作为探针和定位回原用。">
 <meta property="og:locale">
 <meta property="og:image" content="http://example.com/images/Pasted%20image%2020240607114955.png">
 <meta property="og:image" content="http://example.com/images/Pasted%20image%2020240607145855.png">
@@ -102,7 +102,7 @@
 <meta property="og:image" content="http://example.com/images/20240426162705.jpg">
 <meta property="og:image" content="http://example.com/images/20240629092027.jpg">
 <meta property="article:published_time" content="2024-07-07T11:22:00.000Z">
-<meta property="article:modified_time" content="2024-07-07T11:39:39.790Z">
+<meta property="article:modified_time" content="2024-07-07T15:02:54.415Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="FDM">
 <meta name="twitter:card" content="summary">
@@ -375,6 +375,8 @@
       
         <h2 id="概论"><a href="#概论" class="headerlink" title="概论"></a>概论</h2><p>这里提供两种自动调平方式，其他的之后在补充<br>第一种是用接近开关当探头，使用固定z限位来定位回原</p>
 <p>第二种是使用bltouch作为探针和定位回原用。</p>
+<span id="more"></span>
+
 <h3 id="床网"><a href="#床网" class="headerlink" title="床网"></a>床网</h3><h4 id="床网参数"><a href="#床网参数" class="headerlink" title="床网参数"></a>床网参数</h4><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">[bed_mesh]</span><br><span class="line">speed: 200             #探针在探测点之间移动的速度</span><br><span class="line">horizontal_move_z: 10   #探针在移动前上升到的距离</span><br><span class="line">mesh_min: 70,50        #第一个探测的坐标，最接近原点。该坐标是相对于探针的位置的</span><br><span class="line">mesh_max: 950,950     #距离原点最远的探测坐标。这不一定是探测的最后一点</span><br><span class="line">probe_count: 6,6       #每个轴上要探测的点数</span><br><span class="line">#mesh_pps: 3,3          #此选项指定沿x和y轴为每个线段插入多少个点</span><br><span class="line">algorithm: bicubic     #用于插值网格的算法</span><br><span class="line">bicubic_tension: 0.2</span><br><span class="line">#fade_start: 1          #开始逐步淘汰调整的Z高度。在开始淡入淡出过程之前，最好先减少几层</span><br><span class="line">#fade_end: 0            #可以根据打印表面的弯曲程度来调整此值</span><br><span class="line">#fade_target: 0         #可以被认为是附加的Z偏移褪色完成之后施加到整个床的</span><br><span class="line"></span><br><span class="line">zero_reference_position: 125, 110  # 相对零点，就是热床中心位置，床网从这里展开，无不偿</span><br></pre></td></tr></tbody></table></figure>
 
 <ol>
