@@ -1,0 +1,785 @@
+<!DOCTYPE html><html class="theme-next muse use-motion" lang="zh-Hans"><head>
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.lug.ustc.edu.cn/css?family=Lato:300,300italic,400,400italic,700,700italic&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="待发布,">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2">
+
+
+
+
+
+
+<meta name="description" content="最前面的参考1_史诗级讲解计算机字符编码的前世今生 了解编码文件的编码简单一点说就是将字符转换成数字来存储  编码（Encode）是信息从一种形式转换为另一种形式的过程，比如用预先规定的方法将字符（文字、数字、符号等）、图像、声音或其它对象转换成规定的电脉冲信号或二进制数字。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="文件操作">
+<meta property="og:url" content="http://example.com/2024/07/15/%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/index.html">
+<meta property="og:site_name" content="成城的博客">
+<meta property="og:description" content="最前面的参考1_史诗级讲解计算机字符编码的前世今生 了解编码文件的编码简单一点说就是将字符转换成数字来存储  编码（Encode）是信息从一种形式转换为另一种形式的过程，比如用预先规定的方法将字符（文字、数字、符号等）、图像、声音或其它对象转换成规定的电脉冲信号或二进制数字。">
+<meta property="og:locale">
+<meta property="og:image" content="http://example.com/2024/07/15/%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/web_1721125724891.png">
+<meta property="og:image" content="http://example.com/2024/07/15/%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/IMG_20221122_091146.png">
+<meta property="article:published_time" content="2024-07-15T10:57:00.000Z">
+<meta property="article:modified_time" content="2024-07-16T13:26:14.336Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="待发布">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2024/07/15/%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/web_1721125724891.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://example.com/2024/07/15/文件操作/">
+
+
+
+
+
+  <title>文件操作 | 成城的博客</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">成城的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/07/15/%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/">
+
+    <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="成城的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">文件操作</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2024-07-15T18:57:00+08:00">
+                2024-07-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="最前面的"><a href="#最前面的" class="headerlink" title="最前面的"></a>最前面的</h3><p><a target="_blank" rel="noopener" href="http://t.csdnimg.cn/QiS8l">参考1_史诗级讲解计算机字符编码的前世今生</a></p>
+<h3 id="了解编码"><a href="#了解编码" class="headerlink" title="了解编码"></a>了解编码</h3><h4 id="文件的编码"><a href="#文件的编码" class="headerlink" title="文件的编码"></a>文件的编码</h4><p>简单一点说就是将字符转换成数字来存储</p>
+<blockquote>
+<p>编码（Encode）是信息从一种形式转换为另一种形式的过程，比如用预先规定的方法将字符（文字、数字、符号等）、图像、声音或其它对象转换成规定的电脉冲信号或二进制数字。</p>
+</blockquote>
+<span id="more"></span>
+
+<h4 id="编码转换过程"><a href="#编码转换过程" class="headerlink" title="编码转换过程"></a>编码转换过程</h4><ol>
+<li><p>英文<br>键盘和ASCII码直接对应，按下按键，存储相对应的二进制数字。</p>
+</li>
+<li><p>中文</p>
+<ol>
+<li>输入码  利用按键字母组合和汉字建立映射表</li>
+<li>机内码  计算机内部真正存储和交换的二进制编码</li>
+<li>字形码  就是nxn的像素点阵，预先存在计算机当中，字形码的集合就叫字库。</li>
+</ol>
+</li>
+</ol>
+<blockquote>
+<p>字形码<br>不同的字库（如宋体、黑体）对同一个字符的字形编码是不同的。<br>其实我们也可以认为字符编码是字形码的一种压缩方式，一个占32字节的像素点阵压缩成了2字节的机内码。<br><img src="/2024/07/15/%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/web_1721125724891.png" alt="image"></p>
+</blockquote>
+<h4 id="现代编码模型"><a href="#现代编码模型" class="headerlink" title="现代编码模型"></a>现代编码模型</h4><ol>
+<li><p>第一层抽象字符集 ACR<br>将所有的抽象字符作为一个集合，这个集合不但包括有形的字符，也包括无形的控制字符。<br>在这个集合里面，同一个字符可能会有多种表现形式，就像一个汉字有黑体，篆体，宋体等不同的表现，但是他们都属于同一个抽象字符，至于如何显示是字形库的事。</p>
+</li>
+<li><p>第二层 编号字符集 CCS<br>就是对抽象字符集里的每个字符进行编号，映射到一个非负整数的集合。<br>将字符转换成数字</p>
+</li>
+<li><p>&nbsp;第三层：字符编码方式 CEF<br>就是将上面的数字编号，转换成二进制序列<br>注意这里不是直接转换过去的。</p>
+</li>
+<li><p>&nbsp;第四层：字符编码方案 CES<br>将二进制序列在计算机中具体存储，<br>主要是计算机中大小端序的问题。</p>
+</li>
+</ol>
+<h3 id="常见的编码"><a href="#常见的编码" class="headerlink" title="常见的编码"></a>常见的编码</h3><h4 id="ASCII码"><a href="#ASCII码" class="headerlink" title="ASCII码"></a>ASCII码</h4><p>8位一个字节(256个状态)<br>一共规定了128个字符的编码<br>最前面一位为0</p>
+<h4 id="ISO-8859-N"><a href="#ISO-8859-N" class="headerlink" title="ISO-8859-N"></a>ISO-8859-N</h4><p>和ASCII一样是一个字节。<br>最前面一位是0时就是ASCII<br>最前面一位是1时，表示扩展的欧洲字符<br>多种变种</p>
+<h4 id="GB系列"><a href="#GB系列" class="headerlink" title="GB系列"></a>GB系列</h4><blockquote>
+<p>在一段文本中，如果一个字节是 0～127，那么这个字节的含义与 ASCII 编码相同，否则，这个字节和下一个字节共同组成汉字（或是 GB 编码定义的其他字符）</p>
+</blockquote>
+<ol>
+<li><p>GB2312<br>2个字节<br>规定表示一个汉字的编码字节其值必须大于 127（即字节的最高位为 1），并且必须是两个大于 127 的字节连在一起来共同表示一个汉字</p>
+</li>
+<li><p>GBK<br>同样是2字节编码，但是只要求第一个字节大于 127 就固定表示这是一个汉字的开始。</p>
+</li>
+</ol>
+<h4 id="ANSI编码"><a href="#ANSI编码" class="headerlink" title="ANSI编码"></a>ANSI编码</h4><blockquote>
+<p>ANSI 编码只是一个范称，一般代表系统默认的编码方式，而且并不是确定的某一种编码方式—— 比如在 Windows 操作系统里，中国区 ANSI 编码指的是 GB 编码，在香港地区 ANSI 编码指的是 Big5 编码，在韩国 ANSI 编码指的是 EUC-KR 编码。</p>
+</blockquote>
+<h4 id="Unicode"><a href="#Unicode" class="headerlink" title="Unicode"></a>Unicode</h4><p>它为每种语言中的每个字符设定了统一并且唯一的二进制编码。<br>是一套字符编码体系，而不仅仅是字符编号。</p>
+<blockquote>
+<p>UTF-8、UTF-16、UTF-32 都是将数字转换到实际的二进制编码实现，Unicode 的编码实现除了 UTF 系列之外，还有 UCS-2/4，GB18030 等。但是现在很多人误把 Unicode 当成只是一个字符编号，这其实是不对的。</p>
+</blockquote>
+<p>UTF-16<br>2个字节</p>
+<h4 id="Big5-繁体字经常用"><a href="#Big5-繁体字经常用" class="headerlink" title="Big5  繁体字经常用"></a>Big5  繁体字经常用</h4><h3 id="python文件的基本操作"><a href="#python文件的基本操作" class="headerlink" title="python文件的基本操作"></a>python文件的基本操作</h3><h4 id="打开文件-获取文件对象"><a href="#打开文件-获取文件对象" class="headerlink" title="打开文件(获取文件对象)"></a>打开文件(获取文件对象)</h4><blockquote>
+<ol>
+<li>open方法<br>encoding不是第三位，必须用关键词参数<br>返回值是文件对象</li>
+</ol>
+</blockquote>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">f = open("python.txt","r", encoding="UTF-8")</span><br></pre></td></tr></tbody></table></figure>
+<p><img src="/2024/07/15/%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/IMG_20221122_091146.png" alt="image"></p>
+<h4 id="读取文件"><a href="#读取文件" class="headerlink" title="读取文件"></a>读取文件</h4><p>文件对象打开后，使用任何方法读取文件，都会续接上一次读取文件的方法。</p>
+<ol>
+<li>read方法</li>
+</ol>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">f.read(10)   # 读取10字节</span><br><span class="line">f.read()     # 读取全部内容</span><br></pre></td></tr></tbody></table></figure>
+
+<ol start="2">
+<li><p>readLines方法<br><code>line = f.readLines()   # 读取文件的全部行，封装到列表中。</code>  </p>
+</li>
+<li><p>readLine方法<br><code>line = f.readLine()   # 读取一行数据</code></p>
+</li>
+<li><p>使用for循环  # 每次循环读取一行文件</p>
+</li>
+</ol>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> line <span class="keyword">in</span> <span class="built_in">open</span>(<span class="string">"python.txt"</span>,<span class="string">"r"</span>):</span><br><span class="line">    <span class="built_in">print</span>(line)</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="写入文件"><a href="#写入文件" class="headerlink" title="写入文件"></a>写入文件</h4><p><code>f = open("python.txt","w") </code><br><code>f = open("python.txt","a") </code></p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">f.write(<span class="string">"hello world"</span>)  <span class="comment"># 将数据写入内存中(缓冲区)</span></span><br></pre></td></tr></tbody></table></figure>
+<h4 id="关闭文件"><a href="#关闭文件" class="headerlink" title="关闭文件"></a>关闭文件</h4><p>程序运行过程中会持续占用文件，没有调用close，文件将一直被python程序占用。<br><code>f.close()   # 关闭文件对象</code></p>
+<h4 id="使用with-open打开文件"><a href="#使用with-open打开文件" class="headerlink" title="使用with open打开文件"></a>使用with open打开文件</h4><p>with open内部语句执行完成之后，不用close()，会自动关闭文件对象</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">with open("python.txt","r", encoding="UTF-8") as f :</span><br><span class="line">    for line in f:</span><br><span class="line">    print(line)</span><br></pre></td></tr></tbody></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E5%BE%85%E5%8F%91%E5%B8%83/" rel="tag"># 待发布</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2024/07/15/bat%E6%89%B9%E5%A4%84%E7%90%86/" rel="next" title="bat批处理">
+                <i class="fa fa-chevron-left"></i> bat批处理
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="">
+          <p class="site-author-name" itemprop="name"></p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%80%E5%89%8D%E9%9D%A2%E7%9A%84"><span class="nav-number">1.</span> <span class="nav-text">最前面的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%86%E8%A7%A3%E7%BC%96%E7%A0%81"><span class="nav-number">2.</span> <span class="nav-text">了解编码</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E7%9A%84%E7%BC%96%E7%A0%81"><span class="nav-number">2.1.</span> <span class="nav-text">文件的编码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BC%96%E7%A0%81%E8%BD%AC%E6%8D%A2%E8%BF%87%E7%A8%8B"><span class="nav-number">2.2.</span> <span class="nav-text">编码转换过程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%8E%B0%E4%BB%A3%E7%BC%96%E7%A0%81%E6%A8%A1%E5%9E%8B"><span class="nav-number">2.3.</span> <span class="nav-text">现代编码模型</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E7%9A%84%E7%BC%96%E7%A0%81"><span class="nav-number">3.</span> <span class="nav-text">常见的编码</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ASCII%E7%A0%81"><span class="nav-number">3.1.</span> <span class="nav-text">ASCII码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ISO-8859-N"><span class="nav-number">3.2.</span> <span class="nav-text">ISO-8859-N</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#GB%E7%B3%BB%E5%88%97"><span class="nav-number">3.3.</span> <span class="nav-text">GB系列</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ANSI%E7%BC%96%E7%A0%81"><span class="nav-number">3.4.</span> <span class="nav-text">ANSI编码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Unicode"><span class="nav-number">3.5.</span> <span class="nav-text">Unicode</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Big5-%E7%B9%81%E4%BD%93%E5%AD%97%E7%BB%8F%E5%B8%B8%E7%94%A8"><span class="nav-number">3.6.</span> <span class="nav-text">Big5  繁体字经常用</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#python%E6%96%87%E4%BB%B6%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C"><span class="nav-number">4.</span> <span class="nav-text">python文件的基本操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%89%93%E5%BC%80%E6%96%87%E4%BB%B6-%E8%8E%B7%E5%8F%96%E6%96%87%E4%BB%B6%E5%AF%B9%E8%B1%A1"><span class="nav-number">4.1.</span> <span class="nav-text">打开文件(获取文件对象)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6"><span class="nav-number">4.2.</span> <span class="nav-text">读取文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%86%99%E5%85%A5%E6%96%87%E4%BB%B6"><span class="nav-number">4.3.</span> <span class="nav-text">写入文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B3%E9%97%AD%E6%96%87%E4%BB%B6"><span class="nav-number">4.4.</span> <span class="nav-text">关闭文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8with-open%E6%89%93%E5%BC%80%E6%96%87%E4%BB%B6"><span class="nav-number">4.5.</span> <span class="nav-text">使用with open打开文件</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        
+<div class="powered-by">
+  由 <a class="theme-link" target="_blank" rel="noopener" href="https://chengcheng.xyz/about/">CC</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  <a class="theme-link" target="_blank" rel="noopener" href="https://chengcheng.xyz/about/">
+    mr.chuangshi@gmail.com
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+<script type="text/javascript" charset="utf-8" src="/js/lazyload-plugin/lazyload.intersectionObserver.min.js"></script></body></html>
