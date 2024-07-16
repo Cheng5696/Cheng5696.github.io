@@ -70,7 +70,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="已发布博客,">
 
 
 
@@ -86,16 +86,17 @@
 
 
 
-<meta name="description" content="这些年用过不少途径记笔记。 最开始的时候，我对多平台没要求，于是用word记笔记。把所有笔记都导出成pdf，然后用calibre软件管理我的笔记和电子书。 后来需要在手机和电脑上同步。于是开始用网易云笔记做笔记，但是记了2个G左右，发现网易云同步问题很大。经常冲突。即使每次都先下载更新再记笔记有时还是会有冲突。最让人没法忍受的是我没法掌控我笔记的源文件。 于是又开始回到了使用本地编辑器记载md格式">
+<meta name="description" content="这些年用过不少途径记笔记。 最开始的时候，我对多平台没要求，于是用word记笔记。把所有笔记都导出成pdf，然后用calibre软件管理我的笔记和电子书。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="谈谈我的笔记系统">
 <meta property="og:url" content="http://example.com/2023/08/20/%E8%B0%88%E8%B0%88%E6%88%91%E7%9A%84%E7%AC%94%E8%AE%B0%E7%B3%BB%E7%BB%9F/index.html">
 <meta property="og:site_name" content="成城的博客">
-<meta property="og:description" content="这些年用过不少途径记笔记。 最开始的时候，我对多平台没要求，于是用word记笔记。把所有笔记都导出成pdf，然后用calibre软件管理我的笔记和电子书。 后来需要在手机和电脑上同步。于是开始用网易云笔记做笔记，但是记了2个G左右，发现网易云同步问题很大。经常冲突。即使每次都先下载更新再记笔记有时还是会有冲突。最让人没法忍受的是我没法掌控我笔记的源文件。 于是又开始回到了使用本地编辑器记载md格式">
+<meta property="og:description" content="这些年用过不少途径记笔记。 最开始的时候，我对多平台没要求，于是用word记笔记。把所有笔记都导出成pdf，然后用calibre软件管理我的笔记和电子书。">
 <meta property="og:locale">
 <meta property="article:published_time" content="2023-08-20T14:16:00.000Z">
-<meta property="article:modified_time" content="2024-07-07T15:03:30.747Z">
+<meta property="article:modified_time" content="2024-07-15T16:31:39.538Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="已发布博客">
 <meta name="twitter:card" content="summary">
 
 
@@ -365,11 +366,11 @@
       
         <p>这些年用过不少途径记笔记。</p>
 <p>最开始的时候，我对多平台没要求，于是用word记笔记。<br>把所有笔记都导出成pdf，然后用calibre软件管理我的笔记和电子书。</p>
+<span id="more"></span>
+
 <p>后来需要在手机和电脑上同步。<br>于是开始用网易云笔记做笔记，但是记了2个G左右，发现网易云同步问题很大。经常冲突。<br>即使每次都先下载更新再记笔记有时还是会有冲突。<br>最让人没法忍受的是我没法掌控我笔记的源文件。</p>
 <p>于是又开始回到了使用本地编辑器记载md格式。</p>
 <p>之后我发现了git，于是使用git来管理笔记。<br>利用github来在多设备之间同步笔记。<br>电脑上可以写一个简单的批处理来快速同步笔记</p>
-<span id="more"></span>
-
 <figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">@echo off</span><br><span class="line"></span><br><span class="line">::中文正确显示</span><br><span class="line">chcp 65001</span><br><span class="line">setlocal enabledelayedexpansion</span><br><span class="line"></span><br><span class="line">title update git</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">color 0A</span><br><span class="line">MODE con: COLS=60 LINES=20</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">echo ========================================</span><br><span class="line">echo    我的笔记下载脚本</span><br><span class="line">echo ========================================</span><br><span class="line"></span><br><span class="line">::拉取远程笔记到本地库</span><br><span class="line">cd ../mynote</span><br><span class="line">git pull</span><br><span class="line">cd ../python</span><br><span class="line">git pull</span><br><span class="line">cd ../../xxxx.github.io</span><br><span class="line">git pull</span><br><span class="line">echo "已成功从远程库拉取笔记"</span><br><span class="line">pause</span><br></pre></td></tr></tbody></table></figure>
 
 <figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">@echo off</span><br><span class="line"></span><br><span class="line">::中文正确显示</span><br><span class="line">chcp 65001</span><br><span class="line">setlocal enabledelayedexpansion</span><br><span class="line"></span><br><span class="line">title update git</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">color 0A</span><br><span class="line">MODE con: COLS=60 LINES=20</span><br><span class="line"></span><br><span class="line">:caozuo </span><br><span class="line">echo ========================================</span><br><span class="line">echo    我的笔记提交脚本</span><br><span class="line">echo ========================================</span><br><span class="line">::提交笔记到远程库</span><br><span class="line">set /p host=请输入备注:</span><br><span class="line">cd mynote</span><br><span class="line">git add .</span><br><span class="line">git commit -m "%host%"</span><br><span class="line">git push -u origin master</span><br><span class="line"></span><br><span class="line">cd ../python</span><br><span class="line">git add .</span><br><span class="line">git commit -m "%host%"</span><br><span class="line">git push -u origin master</span><br><span class="line"></span><br><span class="line">cd ../xxxx.github.io</span><br><span class="line">git add .</span><br><span class="line">git commit -m "%host%"</span><br><span class="line">git push -u origin master</span><br><span class="line"></span><br><span class="line">echo 提交成功</span><br><span class="line">pause</span><br></pre></td></tr></tbody></table></figure>
@@ -392,6 +393,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/%E5%B7%B2%E5%8F%91%E5%B8%83%E5%8D%9A%E5%AE%A2/" rel="tag"># 已发布博客</a>
+          
+        </div>
+      
 
       
       
@@ -401,8 +408,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2023/08/20/%E9%BB%91%E9%A9%ACpython%E5%85%A5%E9%97%A8%E5%88%B0%E7%B2%BE%E9%80%9A%E7%AC%94%E8%AE%B0/" rel="next" title="第一次学习python笔记">
-                <i class="fa fa-chevron-left"></i> 第一次学习python笔记
+              <a href="/2023/08/13/FDM%E7%A1%AC%E4%BB%B6%E7%AF%87/" rel="next" title="FDM硬件篇">
+                <i class="fa fa-chevron-left"></i> FDM硬件篇
               </a>
             
           </div>
@@ -411,8 +418,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2024/03/17/FDM%E6%89%93%E5%8D%B0%E5%BC%82%E5%B8%B8%E8%A7%A3%E9%87%8A%E7%AF%87/" rel="prev" title="FDM打印异常解释篇">
-                FDM打印异常解释篇 <i class="fa fa-chevron-right"></i>
+              <a href="/2023/12/28/FDM%E6%A0%A1%E5%87%86%E7%AF%87/" rel="prev" title="FDM校准篇">
+                FDM校准篇 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -479,7 +486,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -490,7 +497,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
