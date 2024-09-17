@@ -1,0 +1,760 @@
+<!DOCTYPE html><html class="theme-next muse use-motion" lang="zh-Hans"><head>
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.lug.ustc.edu.cn/css?family=Lato:300,300italic,400,400italic,700,700italic&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="待发布,">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2">
+
+
+
+
+
+
+<meta name="description" content="最前面的24/9/9 折腾来折腾去，，，最后建议用Thonny，，管理软件包非常简单看一眼就知道咋用，缺点就是，，功能太少，代码提示也不好用。 miniconda管理conda是什么 管理软件包依赖关系：在实际的软件开发和实验中，往往需要使用到多个不同的软件包和工具库，这些软件包之间往往存在复杂的依赖关系，并且不同版本之间可能存在兼容性问题。 Conda 可以帮助我们自动解决这">
+<meta property="og:type" content="article">
+<meta property="og:title" content="软件包下载以及管理">
+<meta property="og:url" content="http://example.com/2024/09/09/%E6%A8%A1%E5%9D%97_%E8%BD%AF%E4%BB%B6%E5%8C%85%E4%B8%8B%E8%BD%BD%E4%BB%A5%E5%8F%8A%E7%AE%A1%E7%90%86/index.html">
+<meta property="og:site_name" content="成城的博客">
+<meta property="og:description" content="最前面的24/9/9 折腾来折腾去，，，最后建议用Thonny，，管理软件包非常简单看一眼就知道咋用，缺点就是，，功能太少，代码提示也不好用。 miniconda管理conda是什么 管理软件包依赖关系：在实际的软件开发和实验中，往往需要使用到多个不同的软件包和工具库，这些软件包之间往往存在复杂的依赖关系，并且不同版本之间可能存在兼容性问题。 Conda 可以帮助我们自动解决这">
+<meta property="og:locale">
+<meta property="article:published_time" content="2024-09-09T09:20:00.000Z">
+<meta property="article:modified_time" content="2024-09-17T02:28:11.366Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="待发布">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://example.com/2024/09/09/模块_软件包下载以及管理/">
+
+
+
+
+
+  <title>软件包下载以及管理 | 成城的博客</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">成城的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/09/09/%E6%A8%A1%E5%9D%97_%E8%BD%AF%E4%BB%B6%E5%8C%85%E4%B8%8B%E8%BD%BD%E4%BB%A5%E5%8F%8A%E7%AE%A1%E7%90%86/">
+
+    <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="成城的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">软件包下载以及管理</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2024-09-09T17:20:00+08:00">
+                2024-09-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="最前面的"><a href="#最前面的" class="headerlink" title="最前面的"></a>最前面的</h2><p>24/9/9 折腾来折腾去，，，最后建议用Thonny，，管理软件包非常简单看一眼就知道咋用，缺点就是，，功能太少，代码提示也不好用。</p>
+<h2 id="miniconda管理"><a href="#miniconda管理" class="headerlink" title="miniconda管理"></a>miniconda管理</h2><h3 id="conda是什么"><a href="#conda是什么" class="headerlink" title="conda是什么"></a>conda是什么</h3><ul>
+<li><p>管理软件包依赖关系：在实际的软件开发和实验中，往往需要使用到多个不同的软件包和工具库，这些软件包之间往往存在复杂的依赖关系，并且不同版本之间可能存在兼容性问题。 Conda 可以帮助我们自动解决这些依赖关系，确保所需的软件包可以正确安装和运行。</p>
+</li>
+<li><p>管理 Python 版本：在 Python 应用程序的开发和部署过程中，常常需要使用不同的 Python 版本。 Conda 可以创建和管理多个独立的 Python 环境，每个环境中可以安装不同版本的 Python 以及其他软件包和工具库。</p>
+</li>
+<li><p>跨平台移植：由于 Conda 支持跨平台安装和管理软件包，因此可以方便地将一个环境从一台计算机转移到另一台计算机，而不需要手动安装软件包和依赖项。</p>
+</li>
+<li><p>高效快速：Conda 提供了快速而高效的软件包安装、更新和卸载功能，可以大大提高软件开发、实验和部署的效率。</p>
+</li>
+</ul>
+<span id="more"></span>
+
+<h3 id="下载miniconda"><a href="#下载miniconda" class="headerlink" title="下载miniconda"></a>下载miniconda</h3><p><a target="_blank" rel="noopener" href="https://docs.conda.io/projects/miniconda/en/latest/">官网下载地址 </a><br><a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/">清华镜像下载miniconda</a></p>
+<h3 id="更改环境存储位置"><a href="#更改环境存储位置" class="headerlink" title="更改环境存储位置"></a>更改环境存储位置</h3><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">conda config --add envs_dirs E:\miniconda3\envs</span><br><span class="line">conda info   // 查看conda envs directories 的目录</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="添加文件夹到环境变量"><a href="#添加文件夹到环境变量" class="headerlink" title="添加文件夹到环境变量"></a>添加文件夹到环境变量</h3><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">C:\ProgramData\Anaconda3   </span><br><span class="line">C:\ProgramData\Anaconda3\Scripts </span><br><span class="line">C:\ProgramData\Anaconda3\Library\bin</span><br><span class="line"></span><br><span class="line">将conda 安装目录下的Scripts文件夹路径，添加到系统环境变量Path中。</span><br><span class="line">其他一样</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="换源"><a href="#换源" class="headerlink" title="换源"></a>换源</h3><h4 id="清华源官网"><a href="#清华源官网" class="headerlink" title="清华源官网"></a>清华源官网</h4><p><a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/help/anaconda/">清华源</a><br> conda info   // 查看conda现在的配置信息</p>
+<h4 id="其他方法"><a href="#其他方法" class="headerlink" title="其他方法"></a>其他方法</h4><p><code>C:\Users\成城\.condarc</code>  注意缩进,注意去掉文件名后缀,拷贝进去</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">channels:</span><br><span class="line"> - https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch/</span><br><span class="line"> - https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/menpo/</span><br><span class="line"> - https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/bioconda/</span><br><span class="line"> - https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/msys2/</span><br><span class="line"> - https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/</span><br><span class="line"> - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/</span><br><span class="line"> - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/</span><br><span class="line"> - defaults</span><br><span class="line">show_channel_urls: true</span><br></pre></td></tr></tbody></table></figure>
+<blockquote>
+<p>用这种方法换源，我安装open3d模块，安装不了，但是可以安装python3.8新建环境。</p>
+</blockquote>
+<h3 id="环境创建"><a href="#环境创建" class="headerlink" title="环境创建"></a>环境创建</h3><p>创建环境</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">conda env list   // 查看既存环境</span><br><span class="line"></span><br><span class="line">conda create -n test python=3.9 xxx  //安装一个默认安装python3.9，环境名是test的环境,默认安装xxx模块</span><br></pre></td></tr></tbody></table></figure>
+
+<p>在环境内使用conda安装包，经常失败</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">conda list  //查看环境情况 </span><br><span class="line"></span><br><span class="line">conda install -n test1 scipy   // 在test1环境上还想继续安装包：scripy</span><br></pre></td></tr></tbody></table></figure>
+
+<p>在环境内使用pip安装包，稳定</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">conda activate test1  // 进入环境test1</span><br><span class="line">python -m pip install xxx   //安装模块xxx到miniconda文件夹</span><br></pre></td></tr></tbody></table></figure>
+
+
+<h3 id="其他命令"><a href="#其他命令" class="headerlink" title="其他命令"></a>其他命令</h3><p>启动环境 conda activate test1</p>
+<p>退出环境  exit</p>
+<p>删除环境  conda remove -n 环境名称 –all</p>
+<p>克隆环境 conda create -n 新环境名称 –clone 旧环境名称</p>
+<p>导出环境安装目录  conda env export –file 环境目录.yml –name 环境名称</p>
+<p>利用环境安装目录创建环境  conda env create -f 环境目录.yml</p>
+<h3 id="conda使用遇到的问题"><a href="#conda使用遇到的问题" class="headerlink" title="conda使用遇到的问题"></a>conda使用遇到的问题</h3><h4 id="cmd中无法激活环境"><a href="#cmd中无法激活环境" class="headerlink" title="cmd中无法激活环境"></a>cmd中无法激活环境</h4><p>conda init     需要初始化</p>
+<h4 id="EnvironmentNotWritableError-The-current-user-does-not-have-write-permissions-to-the-target-environment"><a href="#EnvironmentNotWritableError-The-current-user-does-not-have-write-permissions-to-the-target-environment" class="headerlink" title="EnvironmentNotWritableError: The current user does not have write permissions to the target environment"></a>EnvironmentNotWritableError: The current user does not have write permissions to the target environment</h4><p>解决方法，管理员身份运行Anaconda Prompt</p>
+<h4 id="conda-list-找不到pip安装的包"><a href="#conda-list-找不到pip安装的包" class="headerlink" title="conda list 找不到pip安装的包"></a>conda list 找不到pip安装的包</h4><p>conda list  只能找到 conda文件夹下的库。改一下pip的下载地址。<br>参考此文章解决  <a target="_blank" rel="noopener" href="https://dhexx.cn/news/show-5089001.html?action=onClick">https://dhexx.cn/news/show-5089001.html?action=onClick</a></p>
+<h3 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/coder_oldgeek/article/details/122239755">学习论坛 </a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_40280870/article/details/131325962?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_baidulandingword~default-0-131325962-blog-115469136.235%5Ev39%5Epc_relevant_anti_vip_base&amp;spm=1001.2101.3001.4242.1&amp;utm_relevant_index=1">参考网站2</a></p>
+<h2 id="pip"><a href="#pip" class="headerlink" title="pip"></a>pip</h2><h3 id="pip换源"><a href="#pip换源" class="headerlink" title="pip换源"></a>pip换源</h3><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">pip 换源: </span><br><span class="line"># 清华源 pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple</span><br><span class="line"></span><br><span class="line"># 阿里源 pip config set global.index-url https://mirrors.aliyun.com/pypi/simple/</span><br><span class="line"></span><br><span class="line">看到这个表示成功 Writing to C:\Users\成城\AppData\Roaming\pip\pip.ini</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="安装软件包"><a href="#安装软件包" class="headerlink" title="安装软件包"></a>安装软件包</h3><p>在conda环境内安装</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">conda activate test1  // 进入环境test1</span><br><span class="line">python -m pip install xxx   //安装模块xxx到miniconda文件夹</span><br></pre></td></tr></tbody></table></figure>
+
+<p>换源失败的情况下安装</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install xxx -i https://pypi.tuna.tsinghua.edu.cn/simple</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="其他命令-1"><a href="#其他命令-1" class="headerlink" title="其他命令"></a>其他命令</h3><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pip show 软件包名  // 查看软件包的详细信息，包括安装路径</span><br><span class="line">pip list   // 查看软件包列表</span><br><span class="line">pip install --target="E:\miniconda3\Lib\site-packages" pyecharts -i https://pypi.tuna.tsinghua.edu.cn/simple    // 安装软件包到指定路径</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="问题与解决"><a href="#问题与解决" class="headerlink" title="问题与解决"></a>问题与解决</h3><h4 id="用-pip-下载包给我下载到C盘去了"><a href="#用-pip-下载包给我下载到C盘去了" class="headerlink" title="用 pip 下载包给我下载到C盘去了"></a>用 pip 下载包给我下载到C盘去了</h4><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">python -m site   // 查看第三方库的安装目录</span><br><span class="line"></span><br><span class="line">	解释：</span><br><span class="line">	USER_BASE: 安装路径；  </span><br><span class="line">	USER_SITE: 脚本路径。  </span><br><span class="line">	简单来说，当我们在cmd窗口运行 pip install numpy 命令后：  </span><br><span class="line">	系统首先调用USER_SITE 路径下的 pip.exe 程序下载 numpy 包，下载完成后，安装到 USER_BASE 路径下。可见，默认的脚本路径和安装路径都在C盘，长久下去C盘会越来越大</span><br></pre></td></tr></tbody></table></figure>
+<p>参考此文章解决  <a target="_blank" rel="noopener" href="https://dhexx.cn/news/show-5089001.html?action=onClick">https://dhexx.cn/news/show-5089001.html?action=onClick</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E5%BE%85%E5%8F%91%E5%B8%83/" rel="tag"># 待发布</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2024/08/23/FDM%E5%9F%BA%E7%A1%80_%E8%80%97%E6%9D%90/" rel="next" title="FDM基础_耗材">
+                <i class="fa fa-chevron-left"></i> FDM基础_耗材
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="">
+          <p class="site-author-name" itemprop="name"></p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%80%E5%89%8D%E9%9D%A2%E7%9A%84"><span class="nav-number">1.</span> <span class="nav-text">最前面的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#miniconda%E7%AE%A1%E7%90%86"><span class="nav-number">2.</span> <span class="nav-text">miniconda管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#conda%E6%98%AF%E4%BB%80%E4%B9%88"><span class="nav-number">2.1.</span> <span class="nav-text">conda是什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BDminiconda"><span class="nav-number">2.2.</span> <span class="nav-text">下载miniconda</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9B%B4%E6%94%B9%E7%8E%AF%E5%A2%83%E5%AD%98%E5%82%A8%E4%BD%8D%E7%BD%AE"><span class="nav-number">2.3.</span> <span class="nav-text">更改环境存储位置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E6%96%87%E4%BB%B6%E5%A4%B9%E5%88%B0%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="nav-number">2.4.</span> <span class="nav-text">添加文件夹到环境变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8D%A2%E6%BA%90"><span class="nav-number">2.5.</span> <span class="nav-text">换源</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B8%85%E5%8D%8E%E6%BA%90%E5%AE%98%E7%BD%91"><span class="nav-number">2.5.1.</span> <span class="nav-text">清华源官网</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E6%96%B9%E6%B3%95"><span class="nav-number">2.5.2.</span> <span class="nav-text">其他方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%8E%AF%E5%A2%83%E5%88%9B%E5%BB%BA"><span class="nav-number">2.6.</span> <span class="nav-text">环境创建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E5%91%BD%E4%BB%A4"><span class="nav-number">2.7.</span> <span class="nav-text">其他命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#conda%E4%BD%BF%E7%94%A8%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">2.8.</span> <span class="nav-text">conda使用遇到的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#cmd%E4%B8%AD%E6%97%A0%E6%B3%95%E6%BF%80%E6%B4%BB%E7%8E%AF%E5%A2%83"><span class="nav-number">2.8.1.</span> <span class="nav-text">cmd中无法激活环境</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#EnvironmentNotWritableError-The-current-user-does-not-have-write-permissions-to-the-target-environment"><span class="nav-number">2.8.2.</span> <span class="nav-text">EnvironmentNotWritableError: The current user does not have write permissions to the target environment</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#conda-list-%E6%89%BE%E4%B8%8D%E5%88%B0pip%E5%AE%89%E8%A3%85%E7%9A%84%E5%8C%85"><span class="nav-number">2.8.3.</span> <span class="nav-text">conda list 找不到pip安装的包</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%93%BE%E6%8E%A5"><span class="nav-number">2.9.</span> <span class="nav-text">链接</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pip"><span class="nav-number">3.</span> <span class="nav-text">pip</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#pip%E6%8D%A2%E6%BA%90"><span class="nav-number">3.1.</span> <span class="nav-text">pip换源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%E5%8C%85"><span class="nav-number">3.2.</span> <span class="nav-text">安装软件包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E5%91%BD%E4%BB%A4-1"><span class="nav-number">3.3.</span> <span class="nav-text">其他命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3"><span class="nav-number">3.4.</span> <span class="nav-text">问题与解决</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%94%A8-pip-%E4%B8%8B%E8%BD%BD%E5%8C%85%E7%BB%99%E6%88%91%E4%B8%8B%E8%BD%BD%E5%88%B0C%E7%9B%98%E5%8E%BB%E4%BA%86"><span class="nav-number">3.4.1.</span> <span class="nav-text">用 pip 下载包给我下载到C盘去了</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        
+<div class="powered-by">
+  由 <a class="theme-link" target="_blank" rel="noopener" href="https://chengcheng.xyz/about/">CC</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  <a class="theme-link" target="_blank" rel="noopener" href="https://chengcheng.xyz/about/">
+    mr.chuangshi@gmail.com
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+<script type="text/javascript" charset="utf-8" src="/js/lazyload-plugin/lazyload.intersectionObserver.min.js"></script></body></html>

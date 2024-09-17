@@ -1,0 +1,749 @@
+<!DOCTYPE html><html class="theme-next muse use-motion" lang="zh-Hans"><head>
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.lug.ustc.edu.cn/css?family=Lato:300,300italic,400,400italic,700,700italic&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="待发布,">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2">
+
+
+
+
+
+
+<meta name="description" content="最前面的Klipper本身是不支持断电续打的，这些天陆续刷到了一些断电续打的视频，进行了一些思考，在这里总结一下。 参考3D打印机Klipper固件相关分享计划 8. 断料检测、断电模型保护/续打不回零不给移动电机？Klipper直接重新定义M84命令 强制移动！">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Klipper_断电续的打方案">
+<meta property="og:url" content="http://example.com/2024/07/25/Klipper_%E6%96%AD%E7%94%B5%E7%BB%AD%E6%89%93%E6%96%B9%E6%A1%88/index.html">
+<meta property="og:site_name" content="成城的博客">
+<meta property="og:description" content="最前面的Klipper本身是不支持断电续打的，这些天陆续刷到了一些断电续打的视频，进行了一些思考，在这里总结一下。 参考3D打印机Klipper固件相关分享计划 8. 断料检测、断电模型保护/续打不回零不给移动电机？Klipper直接重新定义M84命令 强制移动！">
+<meta property="og:locale">
+<meta property="og:image" content="http://example.com/2024/07/25/Klipper_%E6%96%AD%E7%94%B5%E7%BB%AD%E6%89%93%E6%96%B9%E6%A1%88/Pastedimage20240801152857.png">
+<meta property="article:published_time" content="2024-07-25T03:37:00.000Z">
+<meta property="article:modified_time" content="2024-09-17T09:52:04.904Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="待发布">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2024/07/25/Klipper_%E6%96%AD%E7%94%B5%E7%BB%AD%E6%89%93%E6%96%B9%E6%A1%88/Pastedimage20240801152857.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://example.com/2024/07/25/Klipper_断电续打方案/">
+
+
+
+
+
+  <title>Klipper_断电续的打方案 | 成城的博客</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">成城的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/07/25/Klipper_%E6%96%AD%E7%94%B5%E7%BB%AD%E6%89%93%E6%96%B9%E6%A1%88/">
+
+    <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="成城的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Klipper_断电续的打方案</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2024-07-25T11:37:00+08:00">
+                2024-07-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/3D%E6%89%93%E5%8D%B0/" itemprop="url" rel="index">
+                    <span itemprop="name">3D打印</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="最前面的"><a href="#最前面的" class="headerlink" title="最前面的"></a>最前面的</h3><p>Klipper本身是不支持断电续打的，这些天陆续刷到了一些断电续打的视频，进行了一些思考，在这里总结一下。</p>
+<h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1db41197wp/?share_source=copy_web&amp;vd_source=d24daed363ab0b14e00c5054305b6ab8">3D打印机Klipper固件相关分享计划 8. 断料检测、断电模型保护/续打</a><br><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1qv4y1c7N1/?share_source=copy_web&amp;vd_source=d24daed363ab0b14e00c5054305b6ab8">不回零不给移动电机？Klipper直接重新定义M84命令 强制移动！</a></p>
+<span id="more"></span>
+<h4 id="概论"><a href="#概论" class="headerlink" title="概论"></a>概论</h4><p>这几天陆陆续续看了一些断电续打的方案。<br>大概就是在断电时利用UPS供电触发一个自定义的macro，然后这个macro控制关闭热床和喷头加热，移开打印头（断电保护）。写坐标文件到硬盘。之后就是改代码上机打印了。大抵如下啊<br>断电 -&gt;把喷嘴从模型上已开（断电保护模型） -&gt; 恢复供电 -&gt; 断点续打<br>但是目前搞不到UPS,也就是没法断电时瞬间写入坐标。那就只能效仿malin，每隔一定时间写一次坐标，然后在删除代码打印，比如2S？还是10S？？？<br>或者另一种方案，换层时写入，这样是不是对性能要求没那么高呢？</p>
+<p>本来想每秒存一次位置的，但是。。。从主板那里得到消息存储芯片会出问题。那每层存一次位置呢？？</p>
+<p>24/8/1 断电续打基本完结了，实际测下来，接缝的痕迹还是很明显的，续打的效果非常差，不建议。。。</p>
+<h3 id="获取坐标"><a href="#获取坐标" class="headerlink" title="获取坐标"></a>获取坐标</h3><h4 id="启用save-variables配置分段"><a href="#启用save-variables配置分段" class="headerlink" title="启用save_variables配置分段"></a>启用save_variables配置分段</h4><p>用来将变量保存到磁盘，以便在重新启动时使用。所有存储的变量在启动时会被加载到<code>printer.save_variables.variables</code>&nbsp;dict 变量中</p>
+<ol>
+<li><p>启用功能<br>这里注意启用之后会直接创建文件<br>还有就是直接输入文件名无效比如ccvariables.cfg。反正我是没找到创建的文件去哪里了。 要选择路径带文件名</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[save_variables]</span><br><span class="line">filename:~/printer_data/config/tempVariables.cfg</span><br><span class="line"># 必须提供一个可以用来保存参数到磁盘的文件名。</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>将变量保存到磁盘<br><code>SAVE_VARIABLE VARIABLE=&lt;名称&gt; VALUE=&lt;值&gt;</code></p>
+</li>
+<li><p>取数据</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">{% set svv = printer.save_variables.variables %} </span><br><span class="line">{svv.&lt;名称&gt;}</span><br></pre></td></tr></tbody></table></figure></li>
+</ol>
+<h4 id="提取坐标保存到文件"><a href="#提取坐标保存到文件" class="headerlink" title="提取坐标保存到文件"></a>提取坐标保存到文件</h4><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[gcode_macro save_LOCATION]</span><br><span class="line">description: 读取和保存坐标</span><br><span class="line">gcode = </span><br><span class="line">  {% set x1 = printer.toolhead.position.x|float %}</span><br><span class="line">  {% set y1 = printer.toolhead.position.y|float %}</span><br><span class="line">  {% set z1 = printer.toolhead.position.z|float %}</span><br><span class="line">  SAVE_VARIABLE VARIABLE=x VALUE={x1}</span><br><span class="line">  SAVE_VARIABLE VARIABLE=y VALUE={y1}</span><br><span class="line">  SAVE_VARIABLE VARIABLE=z VALUE={z1}</span><br><span class="line">  RESPOND TYPE=error MSG="位置已保存"</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="切片软件处理"><a href="#切片软件处理" class="headerlink" title="切片软件处理"></a>切片软件处理</h3><p>每层图层改变后执行一次坐标存取<br><img src="/2024/07/25/Klipper_%E6%96%AD%E7%94%B5%E7%BB%AD%E6%89%93%E6%96%B9%E6%A1%88/Pastedimage20240801152857.png" alt="image"></p>
+<h3 id="处理打印文件"><a href="#处理打印文件" class="headerlink" title="处理打印文件"></a>处理打印文件</h3><h4 id="第一种方案直接强制z坐标"><a href="#第一种方案直接强制z坐标" class="headerlink" title="第一种方案直接强制z坐标"></a>第一种方案直接强制z坐标</h4><ol>
+<li>参考不回零移动电机的方法第二种</li>
+<li>删除打印层之前所有代码<blockquote>
+<p>先点击开头，然后滑动滚轮到末尾，按住shift在点击末尾，就可以选中多行了。</p>
+</blockquote>
+</li>
+<li>增加打印头<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">; M190 S50 ; 设置床温度并等待达到设定温度</span><br><span class="line">; M109 S180 ; 设置挤出头温度并等待达到设定温度</span><br><span class="line">M106 S255 ; 开风扇</span><br><span class="line">SET_KINEMATIC_POSITION Z=？？？ ; 设置动力学位置，Z轴高度为12.3毫米</span><br><span class="line">G28 X0 Y0 ; 将X和Y轴归零</span><br></pre></td></tr></tbody></table></figure></li>
+</ol>
+<h4 id="第二种方案"><a href="#第二种方案" class="headerlink" title="第二种方案"></a>第二种方案</h4><p>找到一个角落，自定义g代码让打印头归零获得z坐标。<br>然后打印？</p>
+<h3 id="不回零移动电机的方法"><a href="#不回零移动电机的方法" class="headerlink" title="不回零移动电机的方法"></a>不回零移动电机的方法</h3><p>因为Klipper默认不允许在不回原的情况下移动xyz坐标</p>
+<h4 id="首先"><a href="#首先" class="headerlink" title="首先"></a>首先</h4><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[force_move] </span><br><span class="line">enable_force_move: true</span><br></pre></td></tr></tbody></table></figure>
+<h4 id="第一种官方指令"><a href="#第一种官方指令" class="headerlink" title="第一种官方指令"></a>第一种官方指令</h4><p><code>FORCE_MOVE stepper=stepper_x distance=1 velocity=100 accel=300</code><br>强制移动某个轴，设定移动距离，移动速度，加速度。</p>
+<h4 id="第二种改写喷头坐标实现"><a href="#第二种改写喷头坐标实现" class="headerlink" title="第二种改写喷头坐标实现"></a>第二种改写喷头坐标实现</h4><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#重写解锁电机的M84指令，然后设置当前位置（类似G92指定位置；强制设定低级运动学代码使用的打印头位置。） </span><br><span class="line">#官方用法为：SET_KINEMATIC_POSITION [X=&lt;值&gt;] [Y=&lt;值&gt;] [Z=&lt;值&gt;] </span><br><span class="line">#不指定坐标值就是等于当前面板上的坐标</span><br></pre></td></tr></tbody></table></figure>
+<ol>
+<li>我使用<code>SET_KINEMATIC_POSITION&nbsp;X=252.49&nbsp;Y=175&nbsp;Z=0</code> 之后z坐标显示的是<code>-0.11</code>。实验以后是受到床网的影响。当开启床网渐退功能，在大于<code>fade_end</code>之后的坐标就正常显示，不会受到影响。</li>
+</ol>
+<h4 id="第三种重写M84指令-关闭电机指令"><a href="#第三种重写M84指令-关闭电机指令" class="headerlink" title="第三种重写M84指令(关闭电机指令)"></a>第三种重写M84指令(关闭电机指令)</h4><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[gcode_macro M84] </span><br><span class="line">  rename_existing: M84.1 </span><br><span class="line">  gcode: &nbsp;&nbsp;</span><br><span class="line">  SET_STEPPER_ENABLE STEPPER=stepper_x enable=0 &nbsp;&nbsp;SET_STEPPER_ENABLE STEPPER=stepper_y enable=0 &nbsp;&nbsp;SET_STEPPER_ENABLE STEPPER=stepper_z enable=0 &nbsp;&nbsp;SET_STEPPER_ENABLE STEPPER=stepper_z1 enable=0 &nbsp;&nbsp;SET_STEPPER_ENABLE STEPPER=extruder enable=0 &nbsp;&nbsp;#电机数量记得对应更新 &nbsp;&nbsp;</span><br><span class="line">  SET_KINEMATIC_POSITION </span><br><span class="line">  </span><br><span class="line">#开机后设定当前位置（解锁保护） </span><br><span class="line">[delayed_gcode KINEMATIC_POSITION] initial_duration:0.2 </span><br><span class="line">gcode: &nbsp;&nbsp;</span><br><span class="line">  SET_KINEMATIC_POSITION</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E5%BE%85%E5%8F%91%E5%B8%83/" rel="tag"># 待发布</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2024/07/24/Day3_%E6%95%B0%E7%A0%81%E7%AE%A1/" rel="next" title="Day3_数码管">
+                <i class="fa fa-chevron-left"></i> Day3_数码管
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2024/08/09/klipper_%E4%BD%BF%E7%94%A8%E9%82%AE%E4%BB%B6%E9%80%9A%E7%9F%A5%E6%89%93%E5%8D%B0%E6%9C%BA%E7%8A%B6%E6%80%81/" rel="prev" title="klipper使用邮件通知打印机状态">
+                klipper使用邮件通知打印机状态 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="">
+          <p class="site-author-name" itemprop="name"></p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%80%E5%89%8D%E9%9D%A2%E7%9A%84"><span class="nav-number">1.</span> <span class="nav-text">最前面的</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">1.1.</span> <span class="nav-text">参考</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A6%82%E8%AE%BA"><span class="nav-number">1.2.</span> <span class="nav-text">概论</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E5%9D%90%E6%A0%87"><span class="nav-number">2.</span> <span class="nav-text">获取坐标</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%90%AF%E7%94%A8save-variables%E9%85%8D%E7%BD%AE%E5%88%86%E6%AE%B5"><span class="nav-number">2.1.</span> <span class="nav-text">启用save_variables配置分段</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8F%90%E5%8F%96%E5%9D%90%E6%A0%87%E4%BF%9D%E5%AD%98%E5%88%B0%E6%96%87%E4%BB%B6"><span class="nav-number">2.2.</span> <span class="nav-text">提取坐标保存到文件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%87%E7%89%87%E8%BD%AF%E4%BB%B6%E5%A4%84%E7%90%86"><span class="nav-number">3.</span> <span class="nav-text">切片软件处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%84%E7%90%86%E6%89%93%E5%8D%B0%E6%96%87%E4%BB%B6"><span class="nav-number">4.</span> <span class="nav-text">处理打印文件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E7%A7%8D%E6%96%B9%E6%A1%88%E7%9B%B4%E6%8E%A5%E5%BC%BA%E5%88%B6z%E5%9D%90%E6%A0%87"><span class="nav-number">4.1.</span> <span class="nav-text">第一种方案直接强制z坐标</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E7%A7%8D%E6%96%B9%E6%A1%88"><span class="nav-number">4.2.</span> <span class="nav-text">第二种方案</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8D%E5%9B%9E%E9%9B%B6%E7%A7%BB%E5%8A%A8%E7%94%B5%E6%9C%BA%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-number">5.</span> <span class="nav-text">不回零移动电机的方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A6%96%E5%85%88"><span class="nav-number">5.1.</span> <span class="nav-text">首先</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E7%A7%8D%E5%AE%98%E6%96%B9%E6%8C%87%E4%BB%A4"><span class="nav-number">5.2.</span> <span class="nav-text">第一种官方指令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E7%A7%8D%E6%94%B9%E5%86%99%E5%96%B7%E5%A4%B4%E5%9D%90%E6%A0%87%E5%AE%9E%E7%8E%B0"><span class="nav-number">5.3.</span> <span class="nav-text">第二种改写喷头坐标实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E7%A7%8D%E9%87%8D%E5%86%99M84%E6%8C%87%E4%BB%A4-%E5%85%B3%E9%97%AD%E7%94%B5%E6%9C%BA%E6%8C%87%E4%BB%A4"><span class="nav-number">5.4.</span> <span class="nav-text">第三种重写M84指令(关闭电机指令)</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        
+<div class="powered-by">
+  由 <a class="theme-link" target="_blank" rel="noopener" href="https://chengcheng.xyz/about/">CC</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  <a class="theme-link" target="_blank" rel="noopener" href="https://chengcheng.xyz/about/">
+    mr.chuangshi@gmail.com
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+<script type="text/javascript" charset="utf-8" src="/js/lazyload-plugin/lazyload.intersectionObserver.min.js"></script></body></html>

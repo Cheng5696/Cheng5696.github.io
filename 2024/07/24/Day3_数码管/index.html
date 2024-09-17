@@ -1,0 +1,732 @@
+<!DOCTYPE html><html class="theme-next muse use-motion" lang="zh-Hans"><head>
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.lug.ustc.edu.cn/css?family=Lato:300,300italic,400,400italic,700,700italic&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="待发布,">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2">
+
+
+
+
+
+
+<meta name="description" content="基础知识数码管分类 按照显示数字的个数分为1位，3位，4位。。。 按连接方式分为共阳极(阳极接到一起形成公共阳极)和共阴极(阴极接到一起形成公共阴极)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Day3_数码管">
+<meta property="og:url" content="http://example.com/2024/07/24/Day3_%E6%95%B0%E7%A0%81%E7%AE%A1/index.html">
+<meta property="og:site_name" content="成城的博客">
+<meta property="og:description" content="基础知识数码管分类 按照显示数字的个数分为1位，3位，4位。。。 按连接方式分为共阳极(阳极接到一起形成公共阳极)和共阴极(阴极接到一起形成公共阴极)">
+<meta property="og:locale">
+<meta property="og:image" content="http://example.com/2024/07/24/Day3_%E6%95%B0%E7%A0%81%E7%AE%A1/Pastedimage20240723141939.png">
+<meta property="og:image" content="http://example.com/2024/07/24/Day3_%E6%95%B0%E7%A0%81%E7%AE%A1/20240724211827.jpg">
+<meta property="og:image" content="http://example.com/2024/07/24/Day3_%E6%95%B0%E7%A0%81%E7%AE%A1/Pastedimage20240723143438.png">
+<meta property="og:image" content="http://example.com/2024/07/24/Day3_%E6%95%B0%E7%A0%81%E7%AE%A1/20240801214251.jpg">
+<meta property="og:image" content="http://example.com/2024/07/24/Day3_%E6%95%B0%E7%A0%81%E7%AE%A1/20240725112655.jpg">
+<meta property="article:published_time" content="2024-07-24T13:31:00.000Z">
+<meta property="article:modified_time" content="2024-09-17T09:52:04.868Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="待发布">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2024/07/24/Day3_%E6%95%B0%E7%A0%81%E7%AE%A1/Pastedimage20240723141939.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://example.com/2024/07/24/Day3_数码管/">
+
+
+
+
+
+  <title>Day3_数码管 | 成城的博客</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">成城的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/07/24/Day3_%E6%95%B0%E7%A0%81%E7%AE%A1/">
+
+    <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="成城的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Day3_数码管</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2024-07-24T21:31:00+08:00">
+                2024-07-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/ESP32/" itemprop="url" rel="index">
+                    <span itemprop="name">ESP32</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h3><h4 id="数码管分类"><a href="#数码管分类" class="headerlink" title="数码管分类"></a>数码管分类</h4><ol>
+<li>按照显示数字的个数分为1位，3位，4位。。。</li>
+<li>按连接方式分为共阳极(阳极接到一起形成公共阳极)和共阴极(阴极接到一起形成公共阴极)<span id="more"></span>
+<img src="/2024/07/24/Day3_%E6%95%B0%E7%A0%81%E7%AE%A1/Pastedimage20240723141939.png" alt="image"></li>
+</ol>
+<h4 id="SM410364引脚图，共阴极4位"><a href="#SM410364引脚图，共阴极4位" class="headerlink" title="SM410364引脚图，共阴极4位"></a>SM410364引脚图，共阴极4位</h4><p>74位数码管没有公共端，有4个位选线和公共端相连。</p>
+<ol>
+<li>段选线<br><img src="/2024/07/24/Day3_%E6%95%B0%E7%A0%81%E7%AE%A1/20240724211827.jpg" alt="image"></li>
+<li>位选线1234<br><img src="/2024/07/24/Day3_%E6%95%B0%E7%A0%81%E7%AE%A1/Pastedimage20240723143438.png" alt="image"></li>
+</ol>
+<h3 id="模块化"><a href="#模块化" class="headerlink" title="模块化"></a>模块化</h3><h4 id="共阴极四位数码管公共类"><a href="#共阴极四位数码管公共类" class="headerlink" title="共阴极四位数码管公共类"></a>共阴极四位数码管公共类</h4><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">共阴极数码管公共类</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="keyword">from</span> machine <span class="keyword">import</span> Pin</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Seg</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self,a,b,c,d,e,f,g,dp,seg1,seg2,seg3,seg4</span>): <span class="comment"># 在调用的时候填写段选线和位选线对应的GPIO引脚</span></span><br><span class="line">        <span class="comment"># 定义段选线引脚对象</span></span><br><span class="line">        self.a = Pin(a,Pin.OUT)</span><br><span class="line">        self.b = Pin(b,Pin.OUT)</span><br><span class="line">        self.c = Pin(c,Pin.OUT)</span><br><span class="line">        self.d = Pin(d,Pin.OUT)</span><br><span class="line">        self.e = Pin(e,Pin.OUT)</span><br><span class="line">        self.f = Pin(f,Pin.OUT)</span><br><span class="line">        self.g = Pin(g,Pin.OUT)</span><br><span class="line">        self.dp = Pin(dp,Pin.OUT)</span><br><span class="line">        <span class="comment"># 存放所有段选线对象</span></span><br><span class="line">        self.led_list = [self.a,self.b,self.c,self.d,self.e,self.f,self.g,self.dp]</span><br><span class="line">        <span class="comment"># 定义位选线引脚对象</span></span><br><span class="line">        self.seg1 = Pin(seg1,Pin.OUT)</span><br><span class="line">        self.seg2 = Pin(seg2,Pin.OUT)</span><br><span class="line">        self.seg3 = Pin(seg3,Pin.OUT)</span><br><span class="line">        self.seg4 = Pin(seg4,Pin.OUT)</span><br><span class="line">        <span class="comment"># 存放所有位选线对象</span></span><br><span class="line">        self.seg_list = [self.seg1,self.seg2,self.seg3,self.seg4]</span><br><span class="line">        <span class="comment"># 共阴极数码管不同数字对应的电平</span></span><br><span class="line">        self.number_dict = {</span><br><span class="line">            <span class="comment">#:[a,b,c,d,e,f,g,dp] </span></span><br><span class="line">            <span class="number">0</span>:[<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>],</span><br><span class="line">            <span class="number">1</span>:[<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],</span><br><span class="line">            <span class="number">2</span>:[<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>],</span><br><span class="line">            <span class="number">3</span>:[<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>],</span><br><span class="line">            <span class="number">4</span>:[<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>],</span><br><span class="line">            <span class="number">5</span>:[<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>],</span><br><span class="line">            <span class="number">6</span>:[<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>],</span><br><span class="line">            <span class="number">7</span>:[<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],</span><br><span class="line">            <span class="number">8</span>:[<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>],</span><br><span class="line">            <span class="number">9</span>:[<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>],</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 清零操作</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">clear</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="comment"># 初始化位选线</span></span><br><span class="line">        <span class="keyword">for</span> seg <span class="keyword">in</span> self.seg_list:</span><br><span class="line">            seg.on()     </span><br><span class="line">        <span class="comment"># 初始化段选线</span></span><br><span class="line">        <span class="keyword">for</span> led <span class="keyword">in</span> self.led_list:</span><br><span class="line">            led.off()</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># display_number(第几位，显示什么数字)</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">display_number</span>(<span class="params">self,order,number</span>):</span><br><span class="line">        <span class="comment"># 定义当前数字对应的段选线电平列表</span></span><br><span class="line">        logic_list = self.number_dict.get(number)</span><br><span class="line">        <span class="keyword">if</span> logic_list <span class="keyword">and</span> <span class="number">0</span>&lt;=order&lt;<span class="number">4</span>:</span><br><span class="line">            <span class="comment"># 清屏</span></span><br><span class="line">            self.clear()</span><br><span class="line">            <span class="comment"># 显示位拉低电平</span></span><br><span class="line">            self.seg_list[order].off()</span><br><span class="line">            <span class="comment"># 显示数字</span></span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(logic_list)):  </span><br><span class="line">                self.led_list[i].value(logic_list[i])</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># display_4_number(1234) 四位数字动态扫描显示</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">display_4_number</span>(<span class="params">self,number</span>):</span><br><span class="line">        <span class="keyword">if</span> number &lt;=<span class="number">9999</span>:</span><br><span class="line">            number_list = []</span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4</span>):</span><br><span class="line">                number_list.insert(<span class="number">0</span>, number % <span class="number">10</span>)</span><br><span class="line">                number //= <span class="number">10</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4</span>):</span><br><span class="line">            self.display_number(i,number_list[i])</span><br><span class="line">            time.sleep_ms(<span class="number">5</span>)</span><br><span class="line">                </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    seg_object = Seg(a=<span class="number">32</span>,b=<span class="number">25</span>,c=<span class="number">27</span>,d=<span class="number">12</span>,e=<span class="number">13</span>,f=<span class="number">33</span>,g=<span class="number">26</span>,dp=<span class="number">14</span>,seg1=<span class="number">5</span>,seg2=<span class="number">18</span>,seg3=<span class="number">19</span>,seg4=<span class="number">15</span>)</span><br><span class="line">    </span><br><span class="line">    seg_object.display_number(<span class="number">3</span>,<span class="number">8</span>)</span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span> :</span><br><span class="line">        seg_object.display_4_number(<span class="number">1274</span>)</span><br><span class="line">    </span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<ol start="2">
+<li>调用<br><img src="/2024/07/24/Day3_%E6%95%B0%E7%A0%81%E7%AE%A1/20240801214251.jpg" alt="image"><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> common.seg <span class="keyword">import</span> Seg</span><br><span class="line"></span><br><span class="line">seg_object = Seg(a=<span class="number">32</span>,b=<span class="number">25</span>,c=<span class="number">27</span>,d=<span class="number">12</span>,e=<span class="number">13</span>,f=<span class="number">33</span>,g=<span class="number">26</span>,dp=<span class="number">14</span>,seg1=<span class="number">5</span>,seg2=<span class="number">18</span>,seg3=<span class="number">19</span>,seg4=<span class="number">15</span>)</span><br><span class="line"></span><br><span class="line">seg_object.display_number(<span class="number">3</span>,<span class="number">8</span>)</span><br></pre></td></tr></tbody></table></figure></li>
+</ol>
+<h3 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h3><h4 id="循环所有数字和位"><a href="#循环所有数字和位" class="headerlink" title="循环所有数字和位"></a>循环所有数字和位</h4><ol>
+<li>接线<br>每个位选线串一个1k的电阻<br><img src="/2024/07/24/Day3_%E6%95%B0%E7%A0%81%E7%AE%A1/20240725112655.jpg" alt="image"></li>
+<li>代码<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">from</span> machine <span class="keyword">import</span> Pin</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义位选线引脚对象</span></span><br><span class="line">seg1 = Pin(<span class="number">5</span>,Pin.OUT)</span><br><span class="line">seg2 = Pin(<span class="number">18</span>,Pin.OUT)</span><br><span class="line">seg3 = Pin(<span class="number">19</span>,Pin.OUT)</span><br><span class="line">seg4 = Pin(<span class="number">15</span>,Pin.OUT)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义位选线引脚对象的列表</span></span><br><span class="line">seg_list = [seg1,seg2,seg3,seg4]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义段选线引脚对象</span></span><br><span class="line">a = Pin(<span class="number">32</span>,Pin.OUT)</span><br><span class="line">b = Pin(<span class="number">25</span>,Pin.OUT)</span><br><span class="line">c = Pin(<span class="number">27</span>,Pin.OUT)</span><br><span class="line">d = Pin(<span class="number">12</span>,Pin.OUT)</span><br><span class="line">e = Pin(<span class="number">13</span>,Pin.OUT)</span><br><span class="line">f = Pin(<span class="number">33</span>,Pin.OUT)</span><br><span class="line">g = Pin(<span class="number">26</span>,Pin.OUT)</span><br><span class="line">dp = Pin(<span class="number">14</span>,Pin.OUT)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义短选线引脚对象的列表</span></span><br><span class="line">led_list = [a,b,c,d,e,f,g,dp]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 共阴极数码管不同数字对应的电平</span></span><br><span class="line">number_dict = {</span><br><span class="line">    <span class="comment">#:[a,b,c,d,e,f,g,dp] </span></span><br><span class="line">    <span class="number">0</span>:[<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>],</span><br><span class="line">    <span class="number">1</span>:[<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],</span><br><span class="line">    <span class="number">2</span>:[<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>],</span><br><span class="line">    <span class="number">3</span>:[<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>],</span><br><span class="line">    <span class="number">4</span>:[<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>],</span><br><span class="line">    <span class="number">5</span>:[<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>],</span><br><span class="line">    <span class="number">6</span>:[<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>],</span><br><span class="line">    <span class="number">7</span>:[<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],</span><br><span class="line">    <span class="number">8</span>:[<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>],</span><br><span class="line">    <span class="number">9</span>:[<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>],</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment"># 清零操作</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">clear</span>():</span><br><span class="line">    <span class="comment"># 初始化位选线</span></span><br><span class="line">    <span class="keyword">for</span> seg <span class="keyword">in</span> seg_list:</span><br><span class="line">        seg.on()     </span><br><span class="line">    <span class="comment"># 初始化段选线</span></span><br><span class="line">    <span class="keyword">for</span> led <span class="keyword">in</span> led_list:</span><br><span class="line">        led.off()</span><br><span class="line"></span><br><span class="line"><span class="comment"># display_number(第几位，显示什么数字)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">display_number</span>(<span class="params">order,number</span>):</span><br><span class="line">    <span class="comment"># 定义当前数字对应的段选线电平列表</span></span><br><span class="line">    logic_list = number_dict.get(number)</span><br><span class="line">    <span class="keyword">if</span> logic_list <span class="keyword">and</span> <span class="number">0</span>&lt;=order&lt;<span class="number">4</span>:</span><br><span class="line">        <span class="comment"># 清屏</span></span><br><span class="line">        clear()</span><br><span class="line">        <span class="comment"># 显示位拉低电平</span></span><br><span class="line">        seg_list[order].off()</span><br><span class="line">        <span class="comment"># 显示数字</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(logic_list)):  </span><br><span class="line">            led_list[i].value(logic_list[i])</span><br><span class="line">            </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4</span>):</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">            display_number(i,j)</span><br><span class="line">            time.sleep(<span class="number">0.2</span>)</span><br></pre></td></tr></tbody></table></figure></li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E5%BE%85%E5%8F%91%E5%B8%83/" rel="tag"># 待发布</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2024/07/23/Day2_LED/" rel="next" title="Day3_LED流水灯">
+                <i class="fa fa-chevron-left"></i> Day3_LED流水灯
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2024/07/25/Klipper_%E6%96%AD%E7%94%B5%E7%BB%AD%E6%89%93%E6%96%B9%E6%A1%88/" rel="prev" title="Klipper_断电续的打方案">
+                Klipper_断电续的打方案 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="">
+          <p class="site-author-name" itemprop="name"></p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86"><span class="nav-number">1.</span> <span class="nav-text">基础知识</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E7%A0%81%E7%AE%A1%E5%88%86%E7%B1%BB"><span class="nav-number">1.1.</span> <span class="nav-text">数码管分类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SM410364%E5%BC%95%E8%84%9A%E5%9B%BE%EF%BC%8C%E5%85%B1%E9%98%B4%E6%9E%814%E4%BD%8D"><span class="nav-number">1.2.</span> <span class="nav-text">SM410364引脚图，共阴极4位</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A8%A1%E5%9D%97%E5%8C%96"><span class="nav-number">2.</span> <span class="nav-text">模块化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B1%E9%98%B4%E6%9E%81%E5%9B%9B%E4%BD%8D%E6%95%B0%E7%A0%81%E7%AE%A1%E5%85%AC%E5%85%B1%E7%B1%BB"><span class="nav-number">2.1.</span> <span class="nav-text">共阴极四位数码管公共类</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C"><span class="nav-number">3.</span> <span class="nav-text">实验</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BE%AA%E7%8E%AF%E6%89%80%E6%9C%89%E6%95%B0%E5%AD%97%E5%92%8C%E4%BD%8D"><span class="nav-number">3.1.</span> <span class="nav-text">循环所有数字和位</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        
+<div class="powered-by">
+  由 <a class="theme-link" target="_blank" rel="noopener" href="https://chengcheng.xyz/about/">CC</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  <a class="theme-link" target="_blank" rel="noopener" href="https://chengcheng.xyz/about/">
+    mr.chuangshi@gmail.com
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+<script type="text/javascript" charset="utf-8" src="/js/lazyload-plugin/lazyload.intersectionObserver.min.js"></script></body></html>
